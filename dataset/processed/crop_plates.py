@@ -6,18 +6,19 @@ from PIL import Image
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 
 
-def crop_view(view_name, view_dir, output_root, crop_folder="plates", margin=0.0):
-    """Crop YOLO-format boxes from view_dir/images using view_dir/labels."""
+def crop_view(view_name, view_dir, output_root, margin=0.0):
+    """Crop YOLO boxes; save each crop and an empty label.txt in its own folder."""
     image_dir = view_dir / "images"
     label_dir = view_dir / "labels"
-    output_dir = output_root / view_name / crop_folder
-    output_dir.mkdir(parents=True, exist_ok=True)
+    view_output_dir = output_root / view_name
+    view_output_dir.mkdir(parents=True, exist_ok=True)
 
     if not image_dir.is_dir():
         print(f"[{view_name}] Bỏ qua: không tìm thấy {image_dir}")
         return {"images": 0, "crops": 0, "missing_labels": 0, "invalid_boxes": 0}
 
-    image_paths = sorted(p for p in image_dir.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTS)
+    image_paths = [p for p in image_dir.iterdir()
+                   if p.is_file() and p.suffix.lower() in IMAGE_EXTS]
     total_crops, missing_labels, invalid_boxes = 0, 0, 0
 
     for image_path in image_paths:
@@ -41,7 +42,7 @@ def crop_view(view_name, view_dir, output_root, crop_folder="plates", margin=0.0
             print(f"[{view_name}] Không đọc được label {label_path.name}: {exc}")
             continue
 
-        box_index = 0
+        boxes = []
         for line_no, line in enumerate(lines, start=1):
             if not line.strip():
                 continue
@@ -71,21 +72,43 @@ def crop_view(view_name, view_dir, output_root, crop_folder="plates", margin=0.0
             x2 = (x_center + box_w / 2) * img_w
             y2 = (y_center + box_h / 2) * img_h
             pad_x, pad_y = (x2 - x1) * margin, (y2 - y1) * margin
-            left, top = max(0, int(math.floor(x1 - pad_x))), max(0, int(math.floor(y1 - pad_y)))
-            right, bottom = min(img_w, int(math.ceil(x2 + pad_x))), min(img_h, int(math.ceil(y2 + pad_y)))
+            left = max(0, int(math.floor(x1 - pad_x)))
+            top = max(0, int(math.floor(y1 - pad_y)))
+            right = min(img_w, int(math.ceil(x2 + pad_x)))
+            bottom = min(img_h, int(math.ceil(y2 + pad_y)))
 
             if right <= left or bottom <= top:
                 invalid_boxes += 1
                 print(f"[{view_name}] Box rỗng: {label_path.name}, dòng {line_no}")
                 continue
 
+            boxes.append((left, top, right, bottom))
+
+        for box_index, (left, top, right, bottom) in enumerate(boxes, start=1):
+            # If there is one plate, folder name is the source image stem.
+            # If there are multiple plates, append an index to avoid collisions.
+            folder_name = (image_path.stem if len(boxes) == 1
+                           else f"{image_path.stem}__box{box_index:03d}")
+            crop_dir = view_output_dir / folder_name
+            crop_dir.mkdir(parents=True, exist_ok=True)
+
             crop = image.crop((left, top, right, bottom))
-            box_index += 1
-            crop.save(output_dir / f"{image_path.stem}__box{box_index:03d}.jpg", quality=95)
+            # Keep the original filename, even though the image content is cropped.
+            crop.save(crop_dir / image_path.name)
+            (crop_dir / "label.txt").touch(exist_ok=True)
             total_crops += 1
 
-    summary = {"images": len(image_paths), "crops": total_crops, "missing_labels": missing_labels, "invalid_boxes": invalid_boxes}
-    print(f"[{view_name}] Ảnh nguồn: {summary['images']} | Crop: {total_crops} | Thiếu label: {missing_labels} | Box lỗi: {invalid_boxes}\n    Lưu tại: {output_dir}")
+    summary = {
+        "images": len(image_paths),
+        "crops": total_crops,
+        "missing_labels": missing_labels,
+        "invalid_boxes": invalid_boxes,
+    }
+    print(
+        f"[{view_name}] Ảnh nguồn: {summary['images']} | Crop: {total_crops} | "
+        f"Thiếu label: {missing_labels} | Box lỗi: {invalid_boxes}\n"
+        f"    Lưu tại: {view_output_dir}"
+    )
     return summary
 
 
@@ -93,7 +116,6 @@ def main():
     parser = argparse.ArgumentParser(description="Crop biển số từ ảnh theo bounding box YOLO.")
     parser.add_argument("--raw-root", type=Path, default=Path("dataset/raw"), help="Thư mục chứa các view.")
     parser.add_argument("--processed-root", type=Path, default=Path("dataset/processed"), help="Thư mục lưu crop.")
-    parser.add_argument("--crop-folder", default="plates", help="Tên thư mục crop trong mỗi view.")
     parser.add_argument("--views", nargs="*", default=None, help="Tên view cần chạy; mặc định chạy tất cả thư mục con trong raw.")
     parser.add_argument("--margin", type=float, default=0.0, help="Nới box theo tỷ lệ mỗi phía, ví dụ 0.05.")
     args = parser.parse_args()
@@ -107,7 +129,7 @@ def main():
     if not view_dirs:
         parser.error(f"Không tìm thấy view nào trong {args.raw_root}")
 
-    summaries = [crop_view(p.name, p, args.processed_root, args.crop_folder, args.margin) for p in view_dirs]
+    summaries = [crop_view(p.name, p, args.processed_root, args.margin) for p in view_dirs]
     print("\n=== TỔNG KẾT ===")
     print(f"Số view: {len(summaries)} | Tổng crop: {sum(s['crops'] for s in summaries)} | Thiếu label: {sum(s['missing_labels'] for s in summaries)} | Box lỗi: {sum(s['invalid_boxes'] for s in summaries)}")
 
@@ -115,4 +137,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python ./dataset/processed/crop_plates.py --raw-root dataset/raw --processed-root dataset/processed --crop-folder plates --views view2 view4
+# python ./dataset/processed/crop_plates.py --raw-root dataset/raw --processed-root dataset/processed --views view1 view2 view3 view4
