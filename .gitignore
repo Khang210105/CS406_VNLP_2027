@@ -9,19 +9,12 @@ __pycache__/
 # Virtual environment
 .venv/
 venv/
-env/
-ENV/
 
 # Python packaging
 *.egg-info/
 dist/
 build/
 
-# =========================================================
-# Jupyter Notebook
-# =========================================================
-
-.ipynb_checkpoints/
 
 # =========================================================
 # Environment / secrets
@@ -49,57 +42,14 @@ desktop.ini
 # =========================================================
 # Project data
 # =========================================================
-
-# Raw videos/images
-data/raw/*
-
-# Processed/generated data
-data/processed/*
-
-# Large annotation files if generated locally
-data/annotations/*
-
-# =========================================================
-# Models
-# =========================================================
-
-# Trained model weights can be very large
-models/*
-
-# =========================================================
-# Experiment outputs
-# =========================================================
-
-experiments/*
-
-# =========================================================
-# Generated outputs
-# =========================================================
-
-outputs/*
-
-# =========================================================
-# Temporary files
-# =========================================================
-
-*.tmp
-*.temp
 *.log
 
-# Video files
-*.mp4
-*.avi
-*.mov
-*.mkv
 
 # Large image files
 *.jpg
 *.jpeg
 *.png
-*.webp
-*.bmp
 
-*.txt
 *.ckpt
 *.pth
 *.pt

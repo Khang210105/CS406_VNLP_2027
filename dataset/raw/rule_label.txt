@@ -1,0 +1,10 @@
+Mỗi biển số thuộc phạm vi phát hiện tương ứng với một bounding box.
+Box ôm sát phần biển số nhìn thấy được, không bao gồm nhiều nền không cần thiết.
+Không thay đổi kích thước box nhằm làm cho các biển số đồng đều.
+Gán nhãn nhất quán cho biển số nhỏ, biển số xa, biển số nghiêng và biển số ở rìa ảnh theo quy tắc đã xác định.
+Kiểm tra các ảnh có nhiều xe để tránh bỏ sót biển số thuộc phạm vi phát hiện.
+
+view1	Camera lối ra UIT, góc rộng bao quát bãi xe. Bạn cắt ảnh để tập trung vào chiếc xe đang ra cổng.
+view2	Camera lối vào UIT, tập trung vào chiếc xe đang qua cổng, không có xe khác trong khung hình.
+view3	Ảnh chụp tĩnh các xe đang đậu trong bãi gửi xe.
+view4	Dataset khác, ảnh tập trung vào xe đang qua cổng, không có xe khác.
