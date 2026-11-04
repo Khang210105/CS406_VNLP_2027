@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnames License Plate Detection and Recognition DEMO</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 25px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #58a6ff;
+            margin-top: 0;
+        }
+        .config-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .radio-group label {
+            margin-right: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .upload-section {
+            border: 2px dashed #30363d;
+            border-radius: 6px;
+            padding: 30px;
+            text-align: center;
+            background-color: #0d1117;
+            cursor: pointer;
+        }
+        #imageInput { display: none; }
+        .btn {
+            background-color: #238636;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background-color 0.2s, opacity 0.2s;
+        }
+        .btn:hover { background-color: #2ea043; }
+        #loadingText {
+            display: none;
+            text-align: center;
+            color: #58a6ff;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .btn:disabled {
+            background-color: #21262d; /* Đổi sang màu tối */
+            color: #8b949e;            /* Chữ mờ đi */
+            border: 1px solid #30363d;  
+            cursor: not-allowed;       /* Chuột đổi thành vòng tròn gạch chéo */
+            opacity: 0.6;
+        }
+        .result-section, .video-section {
+            display: none;
+            margin-top: 25px;
+        }
+        .result-layout {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .result-image-wrapper {
+            flex: 1.2;
+            min-width: 350px;
+        }
+        .result-image-wrapper img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .result-data-wrapper {
+            flex: 1;
+            min-width: 350px;
+        }
+        
+        /* Cấu trúc Card hiển thị chi tiết các bước bóc tách biển số */
+        .plate-card {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .plate-images-row {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .img-block {
+            flex: 1;
+            text-align: center;
+        }
+        .img-block p {
+            margin: 0 0 5px 0;
+            font-size: 11px;
+            color: #8b949e;
+        }
+        .img-block img {
+            width: 100%;
+            max-height: 70px;
+            object-fit: contain;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            border-radius: 4px;
+        }
+        .arrow-indicator {
+            color: #8b949e;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .plate-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #30363d;
+            padding-top: 8px;
+            margin-top: 5px;
+        }
+        .plate-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #58a6ff;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.2;
+        }
+        .plate-province {
+            font-size: 14px;
+            color: #7ee787;
+            font-weight: bold;
+        }
+        .video-container { text-align: center; background-color: #0d1117; padding: 10px; border-radius: 6px; border: 1px solid #30363d;}
+        .video-container img { max-width: 100%; height: auto; border-radius: 4px; border: 2px solid #58a6ff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Vietnames License Plate Detection & Recognition</h1>
+    
+    <div class="config-section">
+        <span> <strong>Chọn mô hình OCR:</strong></span>
+        <div class="radio-group">
+            <input type="radio" id="modelCrnn" name="model_type" value="crnn" checked>
+            <label for="modelCrnn" style="color: #ffa657;">CRNN</label>
+            <input type="radio" id="modelParseq" name="model_type" value="parseq">
+            <label for="modelParseq" style="color: #58a6ff;">PARSeq</label>
+        </div>
+    </div>
+
+    <div class="upload-section" id="dropZone" onclick="document.getElementById('imageInput').click()">
+        <p id="uploadPrompt">📥 Kéo thả file Ảnh hoặc Video hoặc Tải lên</p>
+        <input type="file" id="imageInput" accept="image/*,video/*">
+    </div>
+
+    <button class="btn" id="submitBtn" disabled>Bắt đầu nhận diện và đọc biển số</button>
+    <div id="loadingText"> Hệ thống đang xử lý...</div>
+
+    <div class="result-section" id="resultSection">
+        <h3> Kết quả phân tích vùng ảnh:</h3>
+        <div class="result-layout">
+            <div class="result-image-wrapper">
+                <img id="resultImage" src="" alt="Kết quả nhận diện">
+            </div>
+            <div class="result-data-wrapper">
+                <h4>Chi tiết bóc tách từng biển số:</h4>
+                <div id="platesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-section" id="videoSection">
+        <h3>🎬 Luồng YOLO Tracking & OCR thời gian thực:</h3>
+        <div class="video-container"><img id="videoStream" src="" alt="Đang nạp luồng..."></div>
+    </div>
+</div>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const dropZone = document.getElementById('dropZone');
+    const uploadPrompt = document.getElementById('uploadPrompt');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingText = document.getElementById('loadingText');
+    const resultSection = document.getElementById('resultSection');
+    const resultImage = document.getElementById('resultImage');
+    const platesList = document.getElementById('platesList');
+    const videoSection = document.getElementById('videoSection');
+    const videoStream = document.getElementById('videoStream');
+
+    let selectedFile = null;
+
+    imageInput.addEventListener('change', (e) => { if (e.target.files.length > 0) handleFileSelection(e.target.files[0]); });
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = '#58a6ff'; });
+    dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = '#30363d'; });
+    dropZone.addEventListener('drop', (e) => { e.preventDefault(); if (e.dataTransfer.files.length > 0) handleFileSelection(e.dataTransfer.files[0]); });
+
+    function handleFileSelection(file) {
+        selectedFile = file;
+        uploadPrompt.innerText = ` 📝 Đã chọn tập tin: ${file.name}`;
+        submitBtn.disabled = false;
+        videoStream.src = "";
+        resultSection.style.display = 'none';
+        videoSection.style.display = 'none';
+    }
+
+    submitBtn.addEventListener('click', async () => {
+        if (!selectedFile) return; 
+        const activeModel = document.querySelector('input[name="model_type"]:checked').value;
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+        formData.append('model_type', activeModel);
+
+        submitBtn.disabled = true; 
+        loadingText.style.display = 'block';
+
+        try {
+            const response = await fetch('/predict', { method: 'POST', body: formData });
+            const data = await response.json();
+
+            if (data.error) { alert(`Hệ thống thông báo: ${data.error}`); return; }
+
+            if (data.is_video) {
+                resultSection.style.display = 'none';
+                videoSection.style.display = 'block';
+                videoStream.src = `/video_feed?t=${new Date().getTime()}`;
+            } else {
+                videoSection.style.display = 'none';
+                platesList.innerHTML = '';
+                
+                if (!data.plates || data.plates.length === 0) {
+                    platesList.innerHTML = '<p style="color: #f78166; font-weight: bold;">❌ Không phát hiện ra biển số nào trong vùng ảnh này.</p>';
+                } else {
+                    data.plates.forEach((p, idx) => {
+                        // 🔥 ĐÃ SỬA: Xử lý triệt để tất cả các kiểu ký tự xuống dòng (nền tảng Windows/Linux lẫn ký tự text chuỗi thường)
+                        let formattedText = p.text.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
+                        
+                        platesList.innerHTML += `
+                            <div class="plate-card">
+                                <div class="plate-images-row">
+                                    <div class="img-block">
+                                        <p>1. Ảnh Crop</p>
+                                        <img src="data:image/jpeg;base64,${p.cropped_img}" alt="Crop">
+                                    </div>
+                                    <div class="arrow-indicator">➔</div>
+                                    <div class="img-block">
+                                        <p>2. Tiền xử lý</p>
+                                        <img src="data:image/jpeg;base64,${p.preprocessed_img}" alt="Preprocessed">
+                                    </div>
+                                </div>
+                                <div class="plate-details">
+                                    <span class="plate-text">[Biển số ${idx+1}]<br>${formattedText}</span>
+                                    <div class="plate-province">📍 ${p.province || 'Không rõ'}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+                resultImage.src = `data:image/jpeg;base64,${data.image}`;
+                resultSection.style.display = 'block';
+            }
+        } catch (error) {
+            alert('❌ Có lỗi kết nối tới Server. Vui lòng đảm bảo file app.py backend của bạn đang hoạt động bình thường.');
+        } finally {
+            loadingText.style.display = 'none';
+            if (selectedFile) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+    });
+</script>
+</body>
+</html>
