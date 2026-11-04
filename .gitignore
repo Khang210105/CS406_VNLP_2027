@@ -13,7 +13,6 @@ __pycache__/
 *.pth
 *.pt
 
-# Keep dataset directory placeholders; ignore all dataset contents.
 dataset/raw/*
 dataset/processed/*
 !dataset/raw/.gitkeep
