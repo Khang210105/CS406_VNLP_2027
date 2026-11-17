@@ -189,10 +189,24 @@ def enhance_image(gray: np.ndarray) -> np.ndarray:
 
     return gray
 
-def preprocess_plate(image: np.ndarray) -> np.ndarray:
+def geometric_enabled() -> bool:
+    """config.yaml -> preprocess.geometric (mặc định True). Thí nghiệm RQ2 đặt False cho nhánh đối chứng."""
+    from vnlp import config
+    return bool(config.CFG.get("preprocess", {}).get("geometric", True))
+
+
+def preprocess_plate(image: np.ndarray, geometric: bool | None = None) -> np.ndarray:
+    """
+    geometric: bật/tắt hiệu chỉnh hình học (bước 1 perspective + bước 4 deskew).
+               None -> lấy theo config preprocess.geometric. Các bước khác luôn chạy,
+               nên 2 nhánh của RQ2 chỉ khác nhau đúng ở hiệu chỉnh hình học.
+    """
+    if geometric is None:
+        geometric = geometric_enabled()
 
     # 1. Perspective transform (xử lý ảnh xéo trước)
-    image = four_point_transform(image)
+    if geometric:
+        image = four_point_transform(image)
 
     # 2. Tăng độ phân giải
     img_upscaled = increase_resolution(image, min_w=IMG_W, min_h=IMG_H)
@@ -201,7 +215,8 @@ def preprocess_plate(image: np.ndarray) -> np.ndarray:
     gray = to_gray(img_upscaled)
 
     # 4. Deskew cải tiến (xử lý nghiêng nhẹ còn lại sau perspective)
-    gray = deskew(gray)
+    if geometric:
+        gray = deskew(gray)
 
     # 5. Enhance
     gray = enhance_image(gray)

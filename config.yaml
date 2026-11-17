@@ -50,6 +50,12 @@ split:
   linked_views:                    # view con luôn cùng split với view gốc (cùng tên ảnh)
     view5: view1                   # view5 = khung hình rộng của chính các frame view1
 
+# ── Tiền xử lý crop biển (vnlp/recognition/preprocess.py) ─────────────
+preprocess:
+  geometric: true                  # hiệu chỉnh hình học: perspective (4 góc) + deskew
+                                   # false = nhánh đối chứng RQ2 (crop gốc), các bước khác giữ nguyên
+                                   # đổi giá trị thì phải train lại OCR; eval/pipeline phải dùng cùng giá trị
+
 # ── OCR chung ──────────────────────────────────────────────────────────
 ocr:
   charset: "0123456789ABCDEFGHKLMNPRSTUVXYZĐ"   # không có Q W I O J

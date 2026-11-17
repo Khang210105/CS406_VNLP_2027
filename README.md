@@ -84,6 +84,17 @@ Mỗi nhánh: `protocol: lodo`, `test_views: [view1, view2]`, đặt 2 dòng tr�
 Split detection mỗi nhánh nằm riêng ở `dataset/splits_lodo-view1-view2_tr-.../` nên không đè nhau.
 Cần có sẵn split recognition lodo (`recognition_split_lodo-view1-view2.csv`) vì detection chia đồng bộ theo nó.
 
+**RQ2 – hiệu chỉnh hình học có giúp PARSeq đọc đúng cả biển không** (2 nhánh, cùng split, cùng tham số):
+
+| Nhánh | `experiment` | `preprocess.geometric` |
+|---|---|---|
+| A – crop gốc (đối chứng) | `rq2-raw` | `false` |
+| B – có hiệu chỉnh (perspective + deskew) | `rq2-geo` | `true` (mặc định) |
+
+Chỉ khác nhau đúng 2 bước hiệu chỉnh; upscale, xám, enhance, resize vẫn chạy ở cả hai nhánh.
+`notebook.run_parseq: true` → `python -m vnlp.kaggle_push`. So sánh exact-match accuracy và CER trên tập test.
+Model train với giá trị nào thì eval/pipeline/demo phải để đúng giá trị đó.
+
 ---
 
 ## Tham khảo
