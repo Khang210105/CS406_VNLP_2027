@@ -71,6 +71,19 @@ split:
 Chạy lại 2 lệnh split (tạo `dataset/splits_lodo-view1-view2/`, không đè split chính) → `python -m vnlp.kaggle_push`.
 So sánh với `baseline` ở dòng view1/view2 để biết mô hình tổng quát sang camera chưa thấy tốt đến đâu.
 
+**RQ1 – nguồn dữ liệu nào giúp YOLO tổng quát sang camera chưa thấy** (3 nhánh, cùng 200 ảnh train, cùng test view1+view2+view5):
+
+| Nhánh | `experiment` | `split.train_views` | `split.train_quota` |
+|---|---|---|---|
+| A – chỉ view3 | `rq1-view3` | `[view3]` | `null` (view3 có đúng 200 ảnh train) |
+| B – chỉ view4 | `rq1-view4` | `[view4]` | `{view4: 200}` |
+| C – kết hợp | `rq1-mix` | `[view3, view4]` | `{view3: 100, view4: 100}` |
+
+Mỗi nhánh: `protocol: lodo`, `test_views: [view1, view2]`, đặt 2 dòng trên, `notebook.run_detection: true`
+(tắt `run_crnn`, `run_parseq` cho nhanh) → `python -m vnlp.data.split_detection` → `python -m vnlp.kaggle_push`.
+Split detection mỗi nhánh nằm riêng ở `dataset/splits_lodo-view1-view2_tr-.../` nên không đè nhau.
+Cần có sẵn split recognition lodo (`recognition_split_lodo-view1-view2.csv`) vì detection chia đồng bộ theo nó.
+
 ---
 
 ## Tham khảo

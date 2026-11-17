@@ -45,7 +45,7 @@ def _set_dotted(d, key, value):
 
 def reload(overrides: dict | None = None):
     """Nạp lại config.yaml (+ env + overrides dạng {"a.b.c": value}) và tính lại mọi đường dẫn."""
-    global SPLIT_PROTOCOL, TEST_VIEWS, SPLIT_NAME
+    global SPLIT_PROTOCOL, TEST_VIEWS, SPLIT_NAME, DET_TRAIN_VIEWS, DET_TRAIN_QUOTA
     global CFG, SEED, EXPERIMENT, RAW_DIR, CROPS_DIR, PROCESSED_DIR, DATA_DIR, OUTPUT_ROOT, OUTPUT_DIR
     global RECOG_SPLIT_DIR, RECOG_TRAIN_DIR, RECOG_VAL_DIR, RECOG_TEST_DIR, RECOG_MANIFEST
     global RECOG_OUTPUT_DIR, CRNN_OUTPUT_DIR, PARSEQ_OUTPUT_DIR, CRNN_WEIGHTS, PARSEQ_WEIGHTS
@@ -85,6 +85,21 @@ def reload(overrides: dict | None = None):
         raise ValueError(f"split.protocol không hợp lệ: {SPLIT_PROTOCOL} (stratified | lodo)")
     SPLIT_NAME = "splits" + tag
 
+    # Detection có thể giới hạn view/số ảnh train (thí nghiệm RQ1) -> thư mục split riêng
+    #   splits_lodo-<test_views>_tr-<view>[x<quota>]-.../detection/ ; OCR không bị ảnh hưởng
+    DET_TRAIN_VIEWS = list(split_cfg.get("train_views") or [])
+    DET_TRAIN_QUOTA = {str(k): int(v) for k, v in (split_cfg.get("train_quota") or {}).items()}
+    det_tag = ""
+    if DET_TRAIN_VIEWS or DET_TRAIN_QUOTA:
+        if SPLIT_PROTOCOL != "lodo":
+            raise ValueError("split.train_views / split.train_quota chỉ dùng với split.protocol = lodo")
+        bad = [v for v in DET_TRAIN_QUOTA if DET_TRAIN_VIEWS and v not in DET_TRAIN_VIEWS]
+        if bad:
+            raise ValueError(f"split.train_quota có view không nằm trong split.train_views: {bad}")
+        train_views = DET_TRAIN_VIEWS or sorted(DET_TRAIN_QUOTA)
+        det_tag = "_tr-" + "-".join(f"{v}x{DET_TRAIN_QUOTA[v]}" if v in DET_TRAIN_QUOTA else v
+                                    for v in train_views)
+
     # Recognition (OCR)
     RECOG_SPLIT_DIR = DATA_DIR / SPLIT_NAME / "recognition"
     RECOG_TRAIN_DIR = RECOG_SPLIT_DIR / "train"
@@ -98,9 +113,9 @@ def reload(overrides: dict | None = None):
     PARSEQ_WEIGHTS = PARSEQ_OUTPUT_DIR / "parseq_model.ckpt"
 
     # Detection (YOLO)
-    DET_SPLIT_DIR = DATA_DIR / SPLIT_NAME / "detection"
+    DET_SPLIT_DIR = DATA_DIR / (SPLIT_NAME + det_tag) / "detection"
     DET_DATA_YAML = DET_SPLIT_DIR / "data.yaml"
-    DET_MANIFEST = DATA_DIR / f"detection_split{tag}.csv"
+    DET_MANIFEST = DATA_DIR / f"detection_split{tag}{det_tag}.csv"
     DET_OUTPUT_DIR = OUTPUT_DIR / "detection"
     DET_RUN_NAME = cfg["detection"]["run_name"]
     YOLO_WEIGHTS = DET_OUTPUT_DIR / DET_RUN_NAME / "weights" / "best.pt"

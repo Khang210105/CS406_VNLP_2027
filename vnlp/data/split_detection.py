@@ -191,17 +191,57 @@ def report(items, stats):
     print("Nguồn quyết định split:", dict(stats))
 
 
+def select_train_views(views, test_views, linked, train_views):
+    """lodo + split.train_views: giữ view test (kèm view liên kết tới nó) + các view train được chọn."""
+    if not train_views:
+        return list(views)
+    missing = [v for v in train_views if v not in views]
+    if missing:
+        raise ValueError(f"split.train_views có view không nằm trong split.detection_views: {missing}")
+    return [v for v in views if v in train_views or v in test_views or linked.get(v) in test_views]
+
+
+def apply_train_quota(items, quota, ratios, seed):
+    """
+    Lấy mẫu ngẫu nhiên (theo seed) để mỗi view trong quota còn đúng `quota[view]` ảnh train;
+    val lấy theo cùng tỉ lệ val:train của config. Test không bị đụng tới.
+    Dùng để các nhánh thí nghiệm có cùng số ảnh huấn luyện.
+    """
+    if not quota:
+        return items
+    rng = random.Random(seed)
+    keep = []
+    for view in sorted({it["view"] for it in items}):
+        group = [it for it in items if it["view"] == view]
+        if view not in quota:
+            keep += group
+            continue
+        target = {"train": quota[view], "val": round(quota[view] * ratios["val"] / ratios["train"])}
+        for split in SPLITS:
+            part = [it for it in group if it["split"] == split]
+            if split in target:
+                if len(part) < target[split]:
+                    print(f"[quota] {view}/{split}: chỉ có {len(part)} ảnh < {target[split]} -> giữ hết")
+                rng.shuffle(part)
+                part = part[:target[split]]
+            keep += part
+    return keep
+
+
 def main():
     cfg = config.CFG["split"]
     ratios = dict(zip(SPLITS, (r / sum(cfg["ratios"]) for r in cfg["ratios"])))
     linked = cfg.get("linked_views") or {}
-    views = cfg["detection_views"]
+    test_views = config.TEST_VIEWS if config.SPLIT_PROTOCOL == "lodo" else None
+    views = select_train_views(cfg["detection_views"], set(test_views or []), linked, config.DET_TRAIN_VIEWS)
 
     recog = read_recognition_manifest(config.RECOG_MANIFEST)
     items = collect_images(config.RAW_DIR, views)
     print(f"Đọc được {len(items)} ảnh từ {config.RAW_DIR} ({', '.join(views)}) | protocol: {config.SPLIT_PROTOCOL}")
-    test_views = config.TEST_VIEWS if config.SPLIT_PROTOCOL == "lodo" else None
     stats = assign_splits(items, recog, linked, ratios, config.SEED, test_views)
+    if config.DET_TRAIN_QUOTA:
+        print(f"Quota ảnh train: {config.DET_TRAIN_QUOTA}")
+        items = apply_train_quota(items, config.DET_TRAIN_QUOTA, ratios, config.SEED)
     write(items, config.DET_SPLIT_DIR, config.DET_MANIFEST)
     report(items, stats)
     print(f"\nĐã ghi: {config.DET_SPLIT_DIR}\nManifest: {config.DET_MANIFEST}")

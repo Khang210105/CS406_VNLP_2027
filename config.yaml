@@ -40,6 +40,11 @@ split:
   protocol: stratified
   test_views: [view1, view2]       # chỉ dùng khi protocol = lodo (view liên kết, vd view5, tự theo)
   ratios: [0.70, 0.15, 0.15]       # train / val / test (lodo: chỉ dùng tỉ lệ train:val)
+  # Chỉ cho detection + protocol lodo (thí nghiệm RQ1). null = như cũ (mọi view không phải test).
+  train_views: null                # vd [view3]: chỉ view này vào train/val
+  train_quota: null                # vd {view3: 100, view4: 100}: số ảnh train mỗi view (lấy mẫu theo seed),
+                                   #   val lấy theo cùng tỉ lệ val:train
+                                   # -> dataset/splits_lodo-<test_views>_tr-<view>[x<quota>]-.../detection/
   jpeg_quality: 95                 # khi đổi crop PNG -> image.jpg
   detection_views: [view1, view2, view3, view4, view5]
   linked_views:                    # view con luôn cùng split với view gốc (cùng tên ảnh)
