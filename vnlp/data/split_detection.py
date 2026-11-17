@@ -242,6 +242,8 @@ def main():
     if config.DET_TRAIN_QUOTA:
         print(f"Quota ảnh train: {config.DET_TRAIN_QUOTA}")
         items = apply_train_quota(items, config.DET_TRAIN_QUOTA, ratios, config.SEED)
+        # đếm lại sau khi lấy mẫu để báo cáo khớp với số ảnh thật được ghi ra
+        stats = Counter(it["split_source"].split(":")[0] for it in items)
     write(items, config.DET_SPLIT_DIR, config.DET_MANIFEST)
     report(items, stats)
     print(f"\nĐã ghi: {config.DET_SPLIT_DIR}\nManifest: {config.DET_MANIFEST}")

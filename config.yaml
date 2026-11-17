@@ -122,10 +122,10 @@ detection:
 
 # ── Kaggle (python -m vnlp.kaggle_push) ────────────────────────────────
 kaggle:
-  # Dataset data dùng trên Kaggle:
-  #   null              -> tự upload data trên máy mình lên <user của bạn>/cs406-vnlp-data
-  #   "owner/slug"      -> dùng dataset private đã được share cho bạn (không cần data trên máy)
-  data_dataset: null
+  # Data trên Kaggle: mỗi bộ split 1 dataset private <owner>/cs406-data-<bộ split>
+  #   null    -> tự upload data trên máy mình (tài khoản của bạn)
+  #   "owner" -> dùng dataset tài khoản `owner` đã upload + share cho bạn (không cần data trên máy)
+  data_owner: null
   kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>-<experiment>
 
 # ── notebooks/main.ipynb ───────────────────────────────────────────────
@@ -135,8 +135,8 @@ notebook:
   run_data_overview: true
   run_crnn: true
   run_parseq: true
-  run_detection: false
-  run_pipeline: false              # cần YOLO + PARSeq weights
+  run_detection: true
+  run_pipeline: true               # cần YOLO + OCR (pipeline_ocr) cùng experiment; thiếu thì tự bỏ qua
   pipeline_ocr: parseq             # parseq | crnn
   pipeline_show: 6                 # số ảnh test vẽ kết quả
   # (repo_url để clone trên Kaggle nằm trong cell đầu notebook, vì phải clone xong mới đọc được file này)

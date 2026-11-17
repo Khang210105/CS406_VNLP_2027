@@ -3,15 +3,16 @@ kaggle_push.py
 ==============
 Đẩy code + data lên Kaggle, cho notebooks/main.ipynb tự chạy trên GPU, in link theo dõi.
 
-    python -m vnlp.kaggle_push            # chạy thật (quick_test=false, bật detection + pipeline)
+    python -m vnlp.kaggle_push            # chạy thật (quick_test=false; phần nào chạy do config notebook.run_*)
     python -m vnlp.kaggle_push quick      # chạy thử vài ảnh
     python -m vnlp.kaggle_push pull       # tải kết quả lần chạy mới nhất về outputs/<experiment>/
 
 Lần đầu: xem README mục "Bắt đầu nhanh" (kaggle auth login, xác minh số điện thoại).
 
 Lên Kaggle (đều PRIVATE):
-  data   : config kaggle.data_dataset, hoặc <user>/cs406-vnlp-data do script tự upload
-           (chỉ upload lại khi manifest CSV đổi)
+  data   : <user>/cs406-data-<bộ split>: MỖI bộ split (splits/, splits_lodo-.../) 1 dataset riêng,
+           chỉ upload bộ experiment đang dùng và chỉ khi manifest đổi.
+           kaggle.data_owner = người khác -> dùng dataset họ đã share, không cần data trên máy.
   code   : <user>/cs406-vnlp-code = vnlp/ + config.yaml + BUILD_INFO.json (upload mỗi lần,
            ghi chú version = tên experiment + git commit)
   kernel : <user>/<kaggle.kernel_slug>-<experiment>: mỗi experiment 1 notebook riêng (chạy song song được),
@@ -31,7 +32,7 @@ import yaml
 
 from vnlp import config
 
-DATA_SLUG, CODE_SLUG = "cs406-vnlp-data", "cs406-vnlp-code"
+CODE_SLUG = "cs406-vnlp-code"
 STAGING = config.OUTPUT_ROOT / "_kaggle_upload"
 STATE_FILE = STAGING / "state.json"
 
@@ -103,36 +104,55 @@ def wait_ready(api, ref, min_version=0, timeout=1800):
 
 
 # ── Data ──────────────────────────────────────────────────────────────
-def push_data(api, user, state):
-    shared = config.CFG.get("kaggle", {}).get("data_dataset")
-    if shared:
-        if not dataset_exists(api, shared):
-            sys.exit(f"Không truy cập được dataset {shared}. Nhờ chủ dataset share (Settings > Collaborators).")
-        print(f"[data] dùng dataset được share: {shared}")
-        return shared, 0
+def data_slug():
+    """Mỗi bộ split 1 dataset riêng -> chỉ upload bộ experiment đang dùng, bộ khác không bị upload lại.
+    splits -> cs406-data-std | splits_lodo-view1-view2_tr-view3x100-view4x100 -> cs406-data-lodo-v1-v2-tr-v3x100-v4x100"""
+    name = config.SPLIT_NAME + config.DET_SPLIT_TAG
+    short = name.removeprefix("splits").replace("view", "v").replace("_", "-").strip("-").lower() or "std"
+    short = re.sub(r"[^a-z0-9-]+", "-", short)
+    slug = f"cs406-data-{short}"
+    if len(slug) > 50:  # giới hạn slug Kaggle
+        slug = f"cs406-data-{hashlib.md5(name.encode()).hexdigest()[:10]}"
+    return slug, name
 
-    if not (config.RECOG_MANIFEST.is_file() and config.DET_MANIFEST.is_file() and config.DET_DATA_YAML.is_file()):
-        sys.exit(f"Chưa có split '{config.SPLIT_NAME}' trên máy. Chạy 2 lệnh split (README), "
-                 "hoặc đặt kaggle.data_dataset trong config.yaml = dataset được share.")
-    # Upload MỌI bộ split đang có (splits/, splits_lodo-*/) -> mỗi experiment chọn bộ của mình
-    manifests = sorted(config.DATA_DIR.glob("*_split*.csv"))
-    split_dirs = sorted(p for p in config.DATA_DIR.glob("splits*") if p.is_dir())
-    fp = hashlib.md5(b"".join(p.name.encode() + p.read_bytes() for p in manifests)).hexdigest()
-    ref = f"{user}/{DATA_SLUG}"
-    if state.get("data_fingerprint") == fp and dataset_exists(api, ref):
-        print(f"[data] không đổi -> dùng lại {ref}")
+
+def push_data(api, user, state):
+    slug, name = data_slug()
+    owner = config.CFG.get("kaggle", {}).get("data_owner")
+    if owner and owner != user:
+        ref = f"{owner}/{slug}"
+        if not dataset_exists(api, ref):
+            sys.exit(f"Không truy cập được {ref} (bộ split '{name}'). Nhờ {owner} chạy push 1 lần với "
+                     f"config này rồi share dataset cho bạn (Settings > Collaborators).")
+        print(f"[data] dùng dataset được share: {ref}")
         return ref, 0
 
+    det_dir = config.DET_SPLIT_DIR
+    needed = [config.RECOG_MANIFEST, config.DET_MANIFEST, config.RECOG_SPLIT_DIR, config.DET_DATA_YAML]
+    missing = [str(p.relative_to(config.DATA_DIR)) for p in needed if not p.exists()]
+    if missing:
+        sys.exit(f"Chưa có bộ split '{name}' trên máy (thiếu {missing}). Chạy 2 lệnh split (README), "
+                 "hoặc đặt kaggle.data_owner trong config.yaml để dùng data được share.")
+
+    manifests = [config.RECOG_MANIFEST, config.DET_MANIFEST]
+    fp = hashlib.md5(b"".join(p.name.encode() + p.read_bytes() for p in manifests)).hexdigest()
+    ref = f"{user}/{slug}"
+    fingerprints = state.setdefault("data_fingerprints", {})
+    if fingerprints.get(ref) == fp and dataset_exists(api, ref):
+        print(f"[data] bộ '{name}' không đổi -> dùng lại {ref}")
+        return ref, 0
+
+    # Giữ nguyên đường dẫn tương đối như dataset/ trên máy -> notebook + config tìm đúng
     folder = STAGING / "data"
     shutil.rmtree(folder, ignore_errors=True)
-    write_meta(folder, user, DATA_SLUG, "CS406 VNLP Data")
-    for d in split_dirs:
-        shutil.copytree(d, folder / d.name)
+    write_meta(folder, user, slug, f"CS406 data {name}"[:50])
+    shutil.copytree(config.RECOG_SPLIT_DIR, folder / config.RECOG_SPLIT_DIR.relative_to(config.DATA_DIR))
+    shutil.copytree(det_dir, folder / det_dir.relative_to(config.DATA_DIR))
     for p in manifests:
         shutil.copy2(p, folder / p.name)
-    print(f"[data] đang upload {ref} ({', '.join(d.name for d in split_dirs)}; ~250 MB/bộ, sẽ lâu)...")
-    need = upload_dataset(api, folder, ref, f"data {fp[:8]}")
-    state["data_fingerprint"] = fp
+    print(f"[data] đang upload {ref} (bộ '{name}')...")
+    need = upload_dataset(api, folder, ref, f"{name} {fp[:8]}")
+    fingerprints[ref] = fp
     STATE_FILE.write_text(json.dumps(state, indent=1))  # lưu ngay: lỗi bước sau không phải upload lại
     return ref, need
 
@@ -186,7 +206,8 @@ def push_kernel(api, user, sources, quick):
     shutil.rmtree(folder, ignore_errors=True)
     folder.mkdir(parents=True)
 
-    overrides = {"notebook.quick_test": quick, "notebook.run_detection": True, "notebook.run_pipeline": True}
+    # Chỉ ép quick_test; chạy phần nào (crnn/parseq/detection/pipeline) do config notebook.run_* quyết định
+    overrides = {"notebook.quick_test": quick}
     nb = json.loads((config.REPO_ROOT / "notebooks" / "main.ipynb").read_text(encoding="utf-8"))
     for cell in nb["cells"]:
         src = "".join(cell["source"])

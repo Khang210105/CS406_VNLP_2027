@@ -22,8 +22,8 @@ Trên kaggle.com: **Settings → Phone verification** – bắt buộc, không c
 
 Chọn 1 cách:
 
-* **Dùng data nhóm đã upload**: nhờ người giữ dataset `<owner>/cs406-vnlp-data` share cho bạn trên Kaggle,
-  rồi sửa `config.yaml`: `kaggle.data_dataset: "<owner>/cs406-vnlp-data"`.
+* **Dùng data nhóm đã upload**: nhờ người upload (tài khoản `<owner>`) share các dataset `cs406-data-*` cho bạn
+  trên Kaggle, rồi sửa `config.yaml`: `kaggle.data_owner: "<owner>"`.
 * **Tự chuẩn bị**: tải [data từ Drive](https://drive.google.com/drive/folders/1AAwdv0Kv0_UM4muJe-nmlt7rWpdf4prR?usp=sharing),
   giải nén **cùng cấp** với thư mục repo:
   ```
@@ -79,8 +79,9 @@ So sánh với `baseline` ở dòng view1/view2 để biết mô hình tổng qu
 | B – chỉ view4 | `rq1-view4` | `[view4]` | `{view4: 200}` |
 | C – kết hợp | `rq1-mix` | `[view3, view4]` | `{view3: 100, view4: 100}` |
 
-Mỗi nhánh: `protocol: lodo`, `test_views: [view1, view2]`, đặt 2 dòng trên, `notebook.run_detection: true`
-(tắt `run_crnn`, `run_parseq` cho nhanh) → `python -m vnlp.data.split_detection` → `python -m vnlp.kaggle_push`.
+Mỗi nhánh: `protocol: lodo`, `test_views: [view1, view2]`, đặt 2 dòng trên; chỉ train YOLO cho nhanh:
+trong mục `notebook:` đặt `run_crnn`, `run_parseq`, `run_pipeline` = `false` → `python -m vnlp.data.split_detection`
+→ `python -m vnlp.kaggle_push`.
 Split detection mỗi nhánh nằm riêng ở `dataset/splits_lodo-view1-view2_tr-.../` nên không đè nhau.
 Cần có sẵn split recognition lodo (`recognition_split_lodo-view1-view2.csv`) vì detection chia đồng bộ theo nó.
 
@@ -92,7 +93,8 @@ Cần có sẵn split recognition lodo (`recognition_split_lodo-view1-view2.csv`
 | B – có hiệu chỉnh (perspective + deskew) | `rq2-geo` | `true` (mặc định) |
 
 Chỉ khác nhau đúng 2 bước hiệu chỉnh; upscale, xám, enhance, resize vẫn chạy ở cả hai nhánh.
-`notebook.run_parseq: true` → `python -m vnlp.kaggle_push`. So sánh exact-match accuracy và CER trên tập test.
+Chỉ train PARSeq cho nhanh: trong mục `notebook:` đặt `run_crnn`, `run_detection`, `run_pipeline` = `false`
+→ `python -m vnlp.kaggle_push`. So sánh exact-match accuracy và CER trên tập test.
 Model train với giá trị nào thì eval/pipeline/demo phải để đúng giá trị đó.
 
 ---

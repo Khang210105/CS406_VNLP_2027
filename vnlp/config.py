@@ -45,7 +45,7 @@ def _set_dotted(d, key, value):
 
 def reload(overrides: dict | None = None):
     """Nạp lại config.yaml (+ env + overrides dạng {"a.b.c": value}) và tính lại mọi đường dẫn."""
-    global SPLIT_PROTOCOL, TEST_VIEWS, SPLIT_NAME, DET_TRAIN_VIEWS, DET_TRAIN_QUOTA
+    global SPLIT_PROTOCOL, TEST_VIEWS, SPLIT_NAME, DET_SPLIT_TAG, DET_TRAIN_VIEWS, DET_TRAIN_QUOTA
     global CFG, SEED, EXPERIMENT, RAW_DIR, CROPS_DIR, PROCESSED_DIR, DATA_DIR, OUTPUT_ROOT, OUTPUT_DIR
     global RECOG_SPLIT_DIR, RECOG_TRAIN_DIR, RECOG_VAL_DIR, RECOG_TEST_DIR, RECOG_MANIFEST
     global RECOG_OUTPUT_DIR, CRNN_OUTPUT_DIR, PARSEQ_OUTPUT_DIR, CRNN_WEIGHTS, PARSEQ_WEIGHTS
@@ -96,6 +96,12 @@ def reload(overrides: dict | None = None):
         bad = [v for v in DET_TRAIN_QUOTA if DET_TRAIN_VIEWS and v not in DET_TRAIN_VIEWS]
         if bad:
             raise ValueError(f"split.train_quota có view không nằm trong split.train_views: {bad}")
+        linked = split_cfg.get("linked_views") or {}
+        clash = [v for v in set(DET_TRAIN_VIEWS) | set(DET_TRAIN_QUOTA)
+                 if v in TEST_VIEWS or linked.get(v) in TEST_VIEWS]
+        if clash:
+            raise ValueError(f"split.train_views/train_quota chứa view thuộc tập test {TEST_VIEWS}: {clash} "
+                             "-> tập train detection sẽ rỗng")
         train_views = DET_TRAIN_VIEWS or sorted(DET_TRAIN_QUOTA)
         det_tag = "_tr-" + "-".join(f"{v}x{DET_TRAIN_QUOTA[v]}" if v in DET_TRAIN_QUOTA else v
                                     for v in train_views)
@@ -113,6 +119,7 @@ def reload(overrides: dict | None = None):
     PARSEQ_WEIGHTS = PARSEQ_OUTPUT_DIR / "parseq_model.ckpt"
 
     # Detection (YOLO)
+    DET_SPLIT_TAG = det_tag
     DET_SPLIT_DIR = DATA_DIR / (SPLIT_NAME + det_tag) / "detection"
     DET_DATA_YAML = DET_SPLIT_DIR / "data.yaml"
     DET_MANIFEST = DATA_DIR / f"detection_split{tag}{det_tag}.csv"
