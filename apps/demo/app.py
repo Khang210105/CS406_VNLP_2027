@@ -1,4 +1,7 @@
 import os
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # gốc repo -> import được vnlp
 import io
 import base64
 from flask import Flask, render_template, request, jsonify, Response
@@ -18,17 +21,18 @@ import matplotlib.patches as mpatches
 # --- IMPORT MÔ HÌNH PARSEQ ---
 from strhub.models.parseq.system import PARSeq
 
-from preprocess import preprocess_plate
-from vn_plate import postprocess_ocr
+from vnlp import config
+from vnlp.recognition.preprocess import preprocess_plate
+from vnlp.recognition.postprocess import postprocess_ocr
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=str(Path(__file__).resolve().parent))  # index.html nằm cạnh app.py
 
 # =====================================================================
 # ĐƯỜNG DẪN TRỌNG SỐ MÔ HÌNH (Lấy chuẩn từ file app.py của bạn)
 # =====================================================================
-YOLO_MODEL_PATH   = r"C:\Users\MrBeast\Desktop\CS338_PR\project\runs\detect\bien_so_detector\weights\best.pt"
-CRNN_MODEL_PATH   = r"C:\Users\MrBeast\Desktop\CS338_PR\project\model\ocr_model.pth"
-PARSEQ_MODEL_PATH = r"C:\Users\MrBeast\Desktop\CS338_PR\project\model\parseq_model.ckpt"
+YOLO_MODEL_PATH   = str(config.YOLO_WEIGHTS)
+CRNN_MODEL_PATH   = str(config.CRNN_WEIGHTS)
+PARSEQ_MODEL_PATH = str(config.PARSEQ_WEIGHTS)
 
 CONF_THRESHOLD  = 0.10
 IMG_W      = 320
@@ -87,7 +91,7 @@ parseq_model = PARSeq(
     perm_num=6, perm_forward=True, perm_mirrored=True, decode_ar=True, refine_iters=1, dropout=0.1
 )
 if os.path.exists(PARSEQ_MODEL_PATH):
-    checkpoint = torch.load(PARSEQ_MODEL_PATH, map_location=DEVICE)
+    checkpoint = torch.load(PARSEQ_MODEL_PATH, map_location=DEVICE, weights_only=False)
     if isinstance(checkpoint, dict) and 'state_dict' in checkpoint:
         parseq_model.load_state_dict(checkpoint['state_dict'])
     else:
@@ -294,7 +298,7 @@ def predict():
     # Kiểm tra xem file tải lên là video hay ảnh dựa trên phần mở rộng đuôi file
     if filename.endswith(('.mp4', '.mov', '.avi', '.mkv')):
         CURRENT_MODEL_TYPE = model_type
-        temp_path = os.path.join(os.getcwd(), "temp_input.mp4")
+        temp_path = str(config.OUTPUT_DIR / "demo" / "temp_input.mp4")
         file.save(temp_path)
         CURRENT_VIDEO_PATH = temp_path
         return jsonify({"is_video": True})

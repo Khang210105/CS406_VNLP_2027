@@ -1,0 +1,114 @@
+# =====================================================================
+# CẤU HÌNH DUY NHẤT CỦA PROJECT
+#   - Đường dẫn tương đối tính từ gốc repo (thư mục chứa file này).
+#   - Biến môi trường ghi đè (dùng trên Kaggle):
+#       VNLP_DATA_DIR   -> paths.data_dir
+#       VNLP_OUTPUT_DIR -> paths.output_dir
+#       VNLP_CONFIG     -> dùng file config khác
+#   - Trong notebook có thể ghi đè từng giá trị: config.reload({"crnn.epochs": 5})
+# =====================================================================
+
+seed: 42
+num_workers: auto            # auto = 0 trên Windows, 4 trên Linux/Kaggle
+
+paths:
+  # Quy trình data: raw -> (crop_plates) crops_dir -> (label_plates) nhãn gợi ý
+  #   -> review tay -> processed_dir -> (split_recognition, split_detection) data_dir/splits
+  raw_dir: ../dataset_CS406/raw                     # ảnh gốc + nhãn YOLO (view1..view5)
+  crops_dir: ../dataset_CS406/processed             # crop tự động + nhãn gợi ý từ PARSeq
+  processed_dir: ../dataset_CS406/processed_manual  # crop đã review/gán nhãn tay
+  data_dir: dataset                                 # chứa splits/ + manifest CSV
+  output_dir: outputs                               # weights, history, biểu đồ
+
+# ── Chuẩn bị data (vnlp/data/*) ──────────────────────────────────────────
+crop:
+  views: [view1, view2, view3, view4]   # view cần crop biển số cho OCR
+  margin: 0.0                            # nới box mỗi phía theo tỉ lệ (vd 0.05)
+
+prelabel:
+  views: [view1, view2, view3, view4]   # view cần PARSeq đọc gợi ý nhãn
+  overwrite: false                       # true: ghi đè cả label.txt đã có nội dung
+
+split:
+  ratios: [0.70, 0.15, 0.15]       # train / val / test
+  jpeg_quality: 95                 # khi đổi crop PNG -> image.jpg
+  detection_views: [view1, view2, view3, view4, view5]
+  linked_views:                    # view con luôn cùng split với view gốc (cùng tên ảnh)
+    view5: view1                   # view5 = khung hình rộng của chính các frame view1
+
+# ── OCR chung ──────────────────────────────────────────────────────────
+ocr:
+  charset: "0123456789ABCDEFGHKLMNPRSTUVXYZĐ"   # không có Q W I O J
+  img_w: 320
+  img_h: 128
+  max_label_length: 12
+
+crnn:
+  epochs: 100
+  batch_size: 16
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+
+parseq:
+  epochs: 100
+  batch_size: 32
+  lr: 5.0e-4
+  model:                           # đổi kiến trúc thì phải train lại
+    warmup_pct: 0.07
+    weight_decay: 1.0e-4
+    patch_size: [16, 16]
+    embed_dim: 384
+    enc_num_heads: 12
+    enc_mlp_ratio: 4
+    enc_depth: 12
+    dec_num_heads: 12
+    dec_mlp_ratio: 4
+    dec_depth: 1
+    perm_num: 6
+    perm_forward: true
+    perm_mirrored: true
+    decode_ar: true
+    refine_iters: 1
+    dropout: 0.1
+
+# ── Detection (YOLO) ───────────────────────────────────────────────────
+detection:
+  base_weights: yolo11s.pt
+  run_name: plate_detector
+  train:                           # truyền thẳng vào YOLO.train(...)
+    epochs: 200
+    imgsz: 640
+    batch: 4
+    optimizer: SGD
+    lr0: 0.01
+    lrf: 0.01
+    warmup_epochs: 5
+    cos_lr: true
+    weight_decay: 0.0005
+    hsv_h: 0.015
+    hsv_s: 0.5
+    hsv_v: 0.4
+    degrees: 10
+    shear: 2.0
+    scale: 0.3
+    mosaic: 1.0
+    close_mosaic: 20
+    fliplr: 0.0                    # KHÔNG lật ảnh biển số
+    flipud: 0.0
+  eval:
+    imgsz: 640
+    batch: 4
+  conf: 0.25                       # ngưỡng confidence khi chạy pipeline
+
+# ── notebooks/main.ipynb ───────────────────────────────────────────────
+notebook:
+  quick_test: true                 # true: vài ảnh + 1 epoch để test code (máy không GPU)
+  quick_n: 8                       # số ảnh mỗi split khi quick_test
+  run_data_overview: true
+  run_crnn: true
+  run_parseq: true
+  run_detection: false
+  run_pipeline: false              # cần YOLO + PARSeq weights
+  pipeline_ocr: parseq             # parseq | crnn
+  pipeline_show: 6                 # số ảnh test vẽ kết quả
+  # (repo_url để clone trên Kaggle nằm trong cell đầu notebook, vì phải clone xong mới đọc được file này)

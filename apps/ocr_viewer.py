@@ -1,16 +1,21 @@
 """
-view_ocr.py
+ocr_viewer.py
 ========================================================================
-Tạo giao diện Web siêu nhẹ để duyệt qua toàn bộ cặp Ảnh + Nhãn trong extra_ocr
+Web xem nhanh các cặp Ảnh + Nhãn của một split OCR (mặc định: test).
+Chạy: python apps/ocr_viewer.py  -> http://127.0.0.1:5050
 ========================================================================
 """
 import os
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # gốc repo -> import được vnlp
 from flask import Flask, render_template_string, send_from_directory
 
 app = Flask(__name__)
 
 # Đường dẫn đến thư mục extra_ocr của bạn
-DATA_DIR = r"C:\Users\MrBeast\Desktop\CS338_PR\project\ocr_split\test"
+from vnlp import config
+DATA_DIR = str(config.RECOG_TEST_DIR)  # đổi sang RECOG_TRAIN_DIR / RECOG_VAL_DIR để xem split khác
 
 @app.route('/file/<path:filename>')
 def get_file(filename):

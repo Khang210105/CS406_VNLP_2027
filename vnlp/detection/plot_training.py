@@ -1,28 +1,28 @@
 """
 plot_training.py
 ================
-Vẽ biểu đồ độ chính xác & loss theo epoch từ file results.csv
-mà YOLO tự sinh ra sau khi train.
+Vẽ biểu đồ độ chính xác & loss theo epoch từ results.csv mà YOLO sinh ra sau khi train.
 
-Cách dùng:
-    python plot_training.py
-    python plot_training.py --csv runs/detect/bien_so_detector/results.csv
-    python plot_training.py --csv results.csv --save bieu_do.png
+    python -m vnlp.detection.plot_training          # đọc run mặc định trong config.yaml
+
+    from vnlp.detection.plot_training import plot_run
+    plot_run("outputs/full/detection/plate_detector/results.csv")
 """
 
-import argparse
 import os
-import pandas as pd
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
+import pandas as pd
 from matplotlib.gridspec import GridSpec
+
+from vnlp import config
 
 # =====================================================
 # CONFIG MẶC ĐỊNH
 # =====================================================
 
-DEFAULT_CSV  = "runs/detect/bien_so_detector-2/results.csv"
-DEFAULT_SAVE = "training_results_2.png"
 
 # =====================================================
 # CÁC CỘT CẦN VẼ  (tên cột YOLO có khoảng trắng thừa → strip)
@@ -84,8 +84,8 @@ def load_csv(path: str) -> pd.DataFrame:
     if not os.path.exists(path):
         raise FileNotFoundError(
             f"Không tìm thấy file: {path}\n"
-            "Hãy chạy train_yolo.py trước, hoặc chỉ định đúng đường dẫn "
-            "bằng --csv"
+            "Hãy train YOLO trước (python -m vnlp.detection.train) "
+            "hoặc truyền đúng đường dẫn vào plot_run(csv_path=...)"
         )
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip()   # YOLO hay thêm khoảng trắng
@@ -214,20 +214,16 @@ def plot(df: pd.DataFrame, save_path: str):
 # MAIN
 # =====================================================
 
-if __name__ == "__main__":
-
-    parser = argparse.ArgumentParser(description="Vẽ biểu đồ training YOLO")
-    parser.add_argument(
-        "--csv",  default=DEFAULT_CSV,
-        help=f"Đường dẫn tới results.csv (mặc định: {DEFAULT_CSV})"
-    )
-    parser.add_argument(
-        "--save", default=DEFAULT_SAVE,
-        help=f"Tên file ảnh output (mặc định: {DEFAULT_SAVE})"
-    )
-    args = parser.parse_args()
-
-    df = load_csv(args.csv)
-    print(f"Đọc được {len(df)} epochs từ: {args.csv}")
+def plot_run(csv_path=None, save_path=None):
+    """Mặc định: <output>/detection/<run_name>/results.csv -> training_results.png cùng thư mục."""
+    csv_path = Path(csv_path or config.DET_OUTPUT_DIR / config.DET_RUN_NAME / "results.csv")
+    save_path = Path(save_path or csv_path.parent / "training_results.png")
+    df = load_csv(str(csv_path))
+    print(f"Đọc được {len(df)} epochs từ: {csv_path}")
     print(best_epoch_info(df))
-    plot(df, args.save)
+    plot(df, str(save_path))
+    return save_path
+
+
+if __name__ == "__main__":
+    plot_run()
