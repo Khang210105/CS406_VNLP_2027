@@ -21,7 +21,7 @@ import numpy as np
 import pandas as pd
 import pytorch_lightning as pl
 import torch
-from pytorch_lightning.callbacks import ModelCheckpoint
+from pytorch_lightning.callbacks import ModelCheckpoint, ModelSummary, TQDMProgressBar
 from strhub.models.parseq.system import PARSeq
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
@@ -200,6 +200,7 @@ def train(train_dir=None, val_dir=None, out_dir=None, epochs=None, batch_size=No
         torch.backends.cudnn.benchmark = True
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    config.snapshot(out_dir)
 
     train_loader = make_loader(train_dir, True, batch_size, True, num_workers)
     val_loader = make_loader(val_dir, False, batch_size, False, num_workers)
@@ -211,7 +212,9 @@ def train(train_dir=None, val_dir=None, out_dir=None, epochs=None, batch_size=No
         max_epochs=epochs,
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=1,
-        callbacks=[checkpoint, TrackingCallback(out_dir)],
+        # Chỉ định rõ tqdm + summary thường: nếu môi trường có `rich` (vd Kaggle), Lightning tự dùng
+        # RichProgressBar -> chiếm stdout, notebook display() sau đó bị RecursionError.
+        callbacks=[checkpoint, TrackingCallback(out_dir), TQDMProgressBar(), ModelSummary()],
         default_root_dir=out_dir,
     )
     trainer.fit(build_model(batch_size, lr), train_dataloaders=train_loader, val_dataloaders=val_loader)

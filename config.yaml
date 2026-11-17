@@ -8,6 +8,8 @@
 #   - Trong notebook có thể ghi đè từng giá trị: config.reload({"crnn.epochs": 5})
 # =====================================================================
 
+experiment: baseline         # tên lần thử nghiệm -> kết quả lưu ở outputs/<experiment>/
+                             # đổi tên mỗi khi đổi code/tham số, vd: parseq-pretrained, crnn-lr1e-4
 seed: 42
 num_workers: auto            # auto = 0 trên Windows, 4 trên Linux/Kaggle
 
@@ -18,7 +20,7 @@ paths:
   crops_dir: ../dataset_CS406/processed             # crop tự động + nhãn gợi ý từ PARSeq
   processed_dir: ../dataset_CS406/processed_manual  # crop đã review/gán nhãn tay
   data_dir: dataset                                 # chứa splits/ + manifest CSV
-  output_dir: outputs                               # weights, history, biểu đồ
+  output_dir: outputs                               # kết quả: outputs/<experiment>/...
 
 # ── Chuẩn bị data (vnlp/data/*) ──────────────────────────────────────────
 crop:
@@ -99,6 +101,14 @@ detection:
     imgsz: 640
     batch: 4
   conf: 0.25                       # ngưỡng confidence khi chạy pipeline
+
+# ── Kaggle (python -m vnlp.kaggle_push) ────────────────────────────────
+kaggle:
+  # Dataset data dùng trên Kaggle:
+  #   null              -> tự upload data trên máy mình lên <user của bạn>/cs406-vnlp-data
+  #   "owner/slug"      -> dùng dataset private đã được share cho bạn (không cần data trên máy)
+  data_dataset: null
+  kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>
 
 # ── notebooks/main.ipynb ───────────────────────────────────────────────
 notebook:

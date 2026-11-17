@@ -22,3 +22,4 @@ ultralytics>=8.3
 
 flask>=3.0                # apps/demo, apps/ocr_viewer.py
 ipykernel>=6.29           # chạy notebooks/main.ipynb bằng kernel .venv
+kaggle>=2.0               # python -m vnlp.kaggle_push

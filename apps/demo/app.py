@@ -298,7 +298,8 @@ def predict():
     # Kiểm tra xem file tải lên là video hay ảnh dựa trên phần mở rộng đuôi file
     if filename.endswith(('.mp4', '.mov', '.avi', '.mkv')):
         CURRENT_MODEL_TYPE = model_type
-        temp_path = str(config.OUTPUT_DIR / "demo" / "temp_input.mp4")
+        (config.OUTPUT_ROOT / "_demo").mkdir(parents=True, exist_ok=True)
+        temp_path = str(config.OUTPUT_ROOT / "_demo" / "temp_input.mp4")
         file.save(temp_path)
         CURRENT_VIDEO_PATH = temp_path
         return jsonify({"is_video": True})

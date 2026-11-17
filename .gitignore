@@ -22,8 +22,7 @@ __pycache__/
 # Data đã chia: chỉ giữ manifest CSV ở dataset/
 dataset/splits/
 
-# Kết quả train/eval (chỉ giữ .gitkeep)
-outputs/**
-!outputs/*/
-!outputs/*/.gitkeep
+# Kết quả train/eval: outputs/<experiment>/ (chỉ giữ .gitkeep)
+outputs/*
+!outputs/.gitkeep
 runs/

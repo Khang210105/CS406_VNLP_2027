@@ -26,6 +26,7 @@ def train(data_yaml=None, out_dir=None, name=None, base_weights=None, **override
         raise FileNotFoundError(f"Không tìm thấy {data_yaml}. Chạy: python -m vnlp.data.split_detection")
 
     params = {**config.CFG["detection"]["train"], **overrides}
+    config.snapshot(out_dir / name)
     params.setdefault("device", 0 if torch.cuda.is_available() else "cpu")
     params.setdefault("workers", config.default_num_workers())
     params.setdefault("seed", config.SEED)

@@ -191,6 +191,7 @@ def train(train_dir=None, val_dir=None, out_dir=None, epochs=None, batch_size=No
     device = config.get_device()
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    config.snapshot(out_dir)
 
     train_loader = make_loader(train_dir, True, batch_size, True, num_workers)
     val_loader = make_loader(val_dir, False, batch_size, False, num_workers)
