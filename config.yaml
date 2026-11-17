@@ -32,7 +32,14 @@ prelabel:
   overwrite: false                       # true: ghi đè cả label.txt đã có nội dung
 
 split:
-  ratios: [0.70, 0.15, 0.15]       # train / val / test
+  # stratified: mỗi view chia train/val/test theo ratios (gom theo biển số)     -> dataset/splits/
+  # lodo      : leave-one-domain-out – test = TOÀN BỘ test_views (camera chưa thấy khi train),
+  #             train/val chia từ các view còn lại; biển có ở test_views bị loại khỏi train/val
+  #             -> dataset/splits_lodo-<test_views>/
+  # Đổi protocol thì chạy lại 2 lệnh split; train/eval tự dùng đúng thư mục theo protocol.
+  protocol: stratified
+  test_views: [view1, view2]       # chỉ dùng khi protocol = lodo (view liên kết, vd view5, tự theo)
+  ratios: [0.70, 0.15, 0.15]       # train / val / test (lodo: chỉ dùng tỉ lệ train:val)
   jpeg_quality: 95                 # khi đổi crop PNG -> image.jpg
   detection_views: [view1, view2, view3, view4, view5]
   linked_views:                    # view con luôn cùng split với view gốc (cùng tên ảnh)
@@ -108,7 +115,7 @@ kaggle:
   #   null              -> tự upload data trên máy mình lên <user của bạn>/cs406-vnlp-data
   #   "owner/slug"      -> dùng dataset private đã được share cho bạn (không cần data trên máy)
   data_dataset: null
-  kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>
+  kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>-<experiment>
 
 # ── notebooks/main.ipynb ───────────────────────────────────────────────
 notebook:

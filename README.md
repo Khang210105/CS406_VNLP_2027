@@ -58,6 +58,19 @@ Lệnh in ra link Kaggle để theo dõi (tab **Logs**).
 
 Mỗi kết quả kèm `config_used.yaml` + `run_info.json` (commit, thời gian) để biết nó từ code/tham số nào.
 
+**Thí nghiệm camera mới (leave-one-domain-out)** – train view3+view4, test toàn bộ camera UIT (view1+view2):
+
+```yaml
+# config.yaml
+experiment: lodo-uit
+split:
+  protocol: lodo            # mặc định: stratified
+  test_views: [view1, view2]
+```
+
+Chạy lại 2 lệnh split (tạo `dataset/splits_lodo-view1-view2/`, không đè split chính) → `python -m vnlp.kaggle_push`.
+So sánh với `baseline` ở dòng view1/view2 để biết mô hình tổng quát sang camera chưa thấy tốt đến đâu.
+
 ---
 
 ## Tham khảo

@@ -86,9 +86,18 @@ def collect_images(raw_dir: Path, views):
     return items
 
 
-def assign_splits(items, recog, linked, ratios, seed):
+def assign_splits(items, recog, linked, ratios, seed, test_views=None):
+    """test_views (protocol lodo): ảnh của view này (và view liên kết tới nó) luôn vào test;
+    ảnh view khác chỉ được vào train/val."""
     rng = random.Random(seed)
     stats = Counter()
+    test_views = set(test_views or [])
+
+    def allowed(view):
+        if not test_views:
+            return SPLITS
+        root = linked.get(view, view)
+        return ("test",) if root in test_views or view in test_views else ("train", "val")
 
     # 1) theo recognition
     for it in items:
@@ -110,7 +119,7 @@ def assign_splits(items, recog, linked, ratios, seed):
         free = [it for it in group if "split" not in it]
         rng.shuffle(free)
         for it in free:
-            best = max(SPLITS, key=lambda s: ratios[s] * len(group) - current[s])
+            best = max(allowed(view), key=lambda s: ratios[s] * len(group) - current[s])
             it["split"], it["split_source"] = best, "balanced"
             current[best] += 1
             stats["balanced"] += 1
@@ -124,8 +133,15 @@ def assign_splits(items, recog, linked, ratios, seed):
         if split:
             it["split"], it["split_source"] = split, f"linked:{linked[it['view']]}"
         else:
-            it["split"], it["split_source"] = rng.choices(SPLITS, weights=[ratios[s] for s in SPLITS])[0], "random"
+            options = allowed(it["view"])
+            it["split"], it["split_source"] = rng.choices(options, weights=[ratios[s] or 1e-9 for s in options])[0], "random"
         stats[it["split_source"].split(":")[0]] += 1
+
+    # An toàn: lodo không cho ảnh view train lọt vào test (vd ảnh nhiều biển bị ưu tiên test)
+    for it in items:
+        if it["split"] not in allowed(it["view"]):
+            it["split"], it["split_source"] = allowed(it["view"])[0], "lodo_forced"
+            stats["lodo_forced"] += 1
     return stats
 
 
@@ -183,8 +199,9 @@ def main():
 
     recog = read_recognition_manifest(config.RECOG_MANIFEST)
     items = collect_images(config.RAW_DIR, views)
-    print(f"Đọc được {len(items)} ảnh từ {config.RAW_DIR} ({', '.join(views)})")
-    stats = assign_splits(items, recog, linked, ratios, config.SEED)
+    print(f"Đọc được {len(items)} ảnh từ {config.RAW_DIR} ({', '.join(views)}) | protocol: {config.SPLIT_PROTOCOL}")
+    test_views = config.TEST_VIEWS if config.SPLIT_PROTOCOL == "lodo" else None
+    stats = assign_splits(items, recog, linked, ratios, config.SEED, test_views)
     write(items, config.DET_SPLIT_DIR, config.DET_MANIFEST)
     report(items, stats)
     print(f"\nĐã ghi: {config.DET_SPLIT_DIR}\nManifest: {config.DET_MANIFEST}")

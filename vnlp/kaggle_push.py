@@ -14,11 +14,13 @@ Lên Kaggle (đều PRIVATE):
            (chỉ upload lại khi manifest CSV đổi)
   code   : <user>/cs406-vnlp-code = vnlp/ + config.yaml + BUILD_INFO.json (upload mỗi lần,
            ghi chú version = tên experiment + git commit)
-  kernel : <user>/<kaggle.kernel_slug>, mỗi lần push là 1 version mới (tab Versions trên Kaggle)
+  kernel : <user>/<kaggle.kernel_slug>-<experiment>: mỗi experiment 1 notebook riêng (chạy song song được),
+           mỗi lần push là 1 version mới (tab Versions trên Kaggle)
 """
 
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -95,11 +97,13 @@ def push_data(api, user, state):
         print(f"[data] dùng dataset được share: {shared}")
         return shared
 
-    manifests = [config.RECOG_MANIFEST, config.DET_MANIFEST]
-    if not all(p.is_file() for p in manifests) or not config.DET_DATA_YAML.is_file():
-        sys.exit("Chưa có data trên máy. Hoặc chạy split (README bước 3), "
+    if not (config.RECOG_MANIFEST.is_file() and config.DET_MANIFEST.is_file() and config.DET_DATA_YAML.is_file()):
+        sys.exit(f"Chưa có split '{config.SPLIT_NAME}' trên máy. Chạy 2 lệnh split (README), "
                  "hoặc đặt kaggle.data_dataset trong config.yaml = dataset được share.")
-    fp = hashlib.md5(b"".join(p.read_bytes() for p in manifests)).hexdigest()
+    # Upload MỌI bộ split đang có (splits/, splits_lodo-*/) -> mỗi experiment chọn bộ của mình
+    manifests = sorted(config.DATA_DIR.glob("*_split*.csv"))
+    split_dirs = sorted(p for p in config.DATA_DIR.glob("splits*") if p.is_dir())
+    fp = hashlib.md5(b"".join(p.name.encode() + p.read_bytes() for p in manifests)).hexdigest()
     ref = f"{user}/{DATA_SLUG}"
     if state.get("data_fingerprint") == fp and dataset_exists(api, ref):
         print(f"[data] không đổi -> dùng lại {ref}")
@@ -108,10 +112,11 @@ def push_data(api, user, state):
     folder = STAGING / "data"
     shutil.rmtree(folder, ignore_errors=True)
     write_meta(folder, user, DATA_SLUG, "CS406 VNLP Data")
-    shutil.copytree(config.DATA_DIR / "splits", folder / "splits")
+    for d in split_dirs:
+        shutil.copytree(d, folder / d.name)
     for p in manifests:
         shutil.copy2(p, folder / p.name)
-    print(f"[data] đang upload {ref} (~250 MB, lần đầu sẽ lâu)...")
+    print(f"[data] đang upload {ref} ({', '.join(d.name for d in split_dirs)}; ~250 MB/bộ, sẽ lâu)...")
     upload_dataset(api, folder, ref, f"data {fp[:8]}")
     state["data_fingerprint"] = fp
     STATE_FILE.write_text(json.dumps(state, indent=1))  # lưu ngay: lỗi bước sau không phải upload lại
@@ -153,7 +158,10 @@ def push_code(api, user, info):
 
 # ── Kernel ────────────────────────────────────────────────────────────
 def kernel_ref(user):
-    return f"{user}/{config.CFG.get('kaggle', {}).get('kernel_slug', 'cs406-vnlp')}"
+    """<user>/<kernel_slug>-<experiment> (slug Kaggle: chữ thường, số, gạch ngang)."""
+    base = config.CFG.get("kaggle", {}).get("kernel_slug", "cs406-vnlp")
+    exp = re.sub(r"[^a-z0-9]+", "-", config.EXPERIMENT.lower()).strip("-") or "default"
+    return f"{user}/{base}-{exp}"
 
 
 def push_kernel(api, user, sources, quick):

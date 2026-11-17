@@ -6,8 +6,8 @@ Chia tập crop biển số (processed_manual) thành train / val / test cho OCR
 Quy tắc chia:
   * Chia theo BIỂN SỐ (group split): một biển chỉ nằm ở đúng 1 split,
     kể cả khi biển đó xuất hiện ở nhiều view -> test luôn là biển chưa thấy.
-  * Phân tầng theo VIEW: mỗi view được chia ~70/15/15 (theo số ảnh),
-    nên split nào cũng có đủ các view.
+  * protocol = stratified: phân tầng theo VIEW, mỗi view chia ~70/15/15 (theo số ảnh).
+  * protocol = lodo: test = toàn bộ split.test_views; train/val từ các view còn lại.
 
 Đầu ra (đúng format mà recognition/train_*.py, eval_*.py đang đọc):
   dataset/splits/recognition/{train,val,test}/<sample_id>/image.jpg + label.txt
@@ -50,7 +50,27 @@ def load_samples(src: Path):
     return samples
 
 
-def assign_splits(samples, ratios, seed):
+def assign_lodo(samples, ratios, seed, test_views):
+    """
+    Leave-one-domain-out: mọi mẫu của test_views -> test.
+    Các view còn lại chia train/val theo biển số (tỉ lệ train:val), BỎ các mẫu có biển
+    xuất hiện ở test_views (split = None) để test thật sự là biển + camera chưa thấy.
+    """
+    test_plates = {s["plate"] for s in samples if s["view"] in test_views}
+    rest = []
+    for s in samples:
+        if s["view"] in test_views:
+            s["split"] = "test"
+        elif s["plate"] in test_plates:
+            s["split"] = None
+        else:
+            rest.append(s)
+    trainval = {"train": ratios["train"], "val": ratios["val"], "test": 0.0}
+    total = trainval["train"] + trainval["val"]
+    assign_splits(rest, {k: v / total for k, v in trainval.items()}, seed, splits=("train", "val"))
+
+
+def assign_splits(samples, ratios, seed, splits=SPLITS):
     """Gán mỗi biển số vào 1 split; cân bằng số ảnh theo tỉ lệ trong từng view."""
     rng = random.Random(seed)
     plate_split = {}
@@ -73,8 +93,8 @@ def assign_splits(samples, ratios, seed):
         # Biển nhiều ảnh xếp trước để greedy cân bằng tốt hơn (ổn định nhờ shuffle trước).
         free.sort(key=lambda p: -counts[p])
         for plate in free:
-            deficit = {sp: ratios[sp] * total - current[sp] for sp in SPLITS}
-            best = max(SPLITS, key=lambda sp: deficit[sp])
+            deficit = {sp: ratios[sp] * total - current[sp] for sp in splits}
+            best = max(splits, key=lambda sp: deficit[sp])
             plate_split[plate] = best
             current[best] += counts[plate]
 
@@ -137,8 +157,17 @@ def main():
     ratios = dict(zip(SPLITS, (r / sum(raw_ratios) for r in raw_ratios)))
 
     samples = load_samples(config.PROCESSED_DIR)
-    print(f"Đọc được {len(samples)} mẫu từ {config.PROCESSED_DIR}")
-    assign_splits(samples, ratios, config.SEED)
+    print(f"Đọc được {len(samples)} mẫu từ {config.PROCESSED_DIR} | protocol: {config.SPLIT_PROTOCOL}")
+    if config.SPLIT_PROTOCOL == "lodo":
+        print(f"Test = toàn bộ {config.TEST_VIEWS}")
+        assign_lodo(samples, ratios, config.SEED, set(config.TEST_VIEWS))
+        dropped = [s for s in samples if s["split"] is None]
+        if dropped:
+            print(f"Bỏ {len(dropped)} mẫu ở view train có biển trùng với view test: "
+                  f"{dict(Counter(s['view'] for s in dropped))}")
+        samples = [s for s in samples if s["split"] is not None]
+    else:
+        assign_splits(samples, ratios, config.SEED)
     write_splits(samples, config.RECOG_SPLIT_DIR, config.RECOG_MANIFEST, cfg["jpeg_quality"])
     report(samples)
     print(f"\nĐã ghi split vào {config.RECOG_SPLIT_DIR}\nManifest: {config.RECOG_MANIFEST}")

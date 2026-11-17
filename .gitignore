@@ -20,7 +20,7 @@ __pycache__/
 *.pt
 
 # Data đã chia: chỉ giữ manifest CSV ở dataset/
-dataset/splits/
+dataset/splits*/
 
 # Kết quả train/eval: outputs/<experiment>/ (chỉ giữ .gitkeep)
 outputs/*
