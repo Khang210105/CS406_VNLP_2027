@@ -1,32 +1,28 @@
-!.env.example
+# Môi trường
 .venv/
 __pycache__/
+*.pyc
+.ipynb_checkpoints/
 
+# Ảnh / video (data nằm ngoài git)
 *.jpg
 *.jpeg
 *.png
 *.webp
 *.JPG
 *.MOV
+*.mp4
+!docs/*.png
 
+# Weights
 *.ckpt
 *.pth
 *.pt
 
-dataset/raw/*
-dataset/processed/*
-!dataset/raw/.gitkeep
-!dataset/processed/.gitkeep
+# Data đã chia: chỉ giữ manifest CSV ở dataset/
+dataset/splits/
 
-dataset/splits/*
-!dataset/splits/*/
-dataset/splits/*/*
-!dataset/splits/*/*/
-dataset/splits/*/*/*
-!dataset/splits/*/*/.gitkeep
-
+# Kết quả train/eval: outputs/<experiment>/ (chỉ giữ .gitkeep)
 outputs/*
-!outputs/*/
-!outputs/*/.gitkeep
-
-!src/pipeline.png
+!outputs/.gitkeep
+runs/

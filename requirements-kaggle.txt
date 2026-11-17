@@ -1,0 +1,6 @@
+# Gói cần thêm trên Kaggle (torch, torchvision, opencv, pandas, matplotlib đã có sẵn).
+# strhub (PARSeq) cài riêng bằng --no-deps trong notebooks/main.ipynb để không đè torch của Kaggle.
+pytorch-lightning>=2.0
+timm
+nltk
+ultralytics
