@@ -226,3 +226,18 @@ def preprocess_plate(image: np.ndarray, geometric: bool | None = None) -> np.nda
 
     assert gray.ndim == 2, f"[preprocess_plate] Kỳ vọng ảnh xám 2D, nhận được shape={gray.shape}"
     return gray
+
+
+def preprocess_many(image_paths) -> list:
+    """Tiền xử lý một lượt cho cả split (dùng cho cache của dataset OCR).
+    Ảnh lỗi -> ảnh đen kích thước chuẩn. Kết quả phụ thuộc preprocess.geometric lúc gọi."""
+    import time
+    from vnlp.utils.io import imread
+
+    start = time.time()
+    out = []
+    for path in image_paths:
+        image = imread(path)
+        out.append(np.zeros((IMG_H, IMG_W), dtype=np.uint8) if image is None else preprocess_plate(image))
+    print(f"[cache] tiền xử lý {len(out)} ảnh trong {time.time() - start:.1f}s")
+    return out

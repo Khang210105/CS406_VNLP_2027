@@ -12,6 +12,8 @@ experiment: baseline         # tên lần thử nghiệm -> kết quả lưu ở
                              # đổi tên mỗi khi đổi code/tham số, vd: parseq-pretrained, crnn-lr1e-4
 seed: 42
 num_workers: auto            # auto = 0 trên Windows, 4 trên Linux/Kaggle
+progress_bar: auto           # thanh tiến trình theo batch. auto = tắt trên Kaggle (output quá nhiều
+                             # làm notebook bị ngắt "Timeout waiting for IOPub output"), bật ở local
 
 paths:
   # Quy trình data: raw -> (crop_plates) crops_dir -> (label_plates) nhãn gợi ý
@@ -62,6 +64,8 @@ ocr:
   img_w: 320
   img_h: 128
   max_label_length: 12
+  cache_preprocessed: true         # tiền xử lý mỗi crop 1 lần rồi giữ trong RAM (~100 MB) thay vì lặp lại
+                                   # mỗi epoch trên CPU (CRNN: ~45s/epoch -> vài giây); augmentation vẫn ngẫu nhiên
 
 crnn:
   epochs: 100
