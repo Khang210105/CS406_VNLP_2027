@@ -25,13 +25,14 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
-from tqdm.auto import tqdm
+
 
 from vnlp import config
-from vnlp.recognition.preprocess import preprocess_plate
+from vnlp.recognition.preprocess import preprocess_many, preprocess_plate
 from vnlp.utils.io import imread, load_samples
 from vnlp.utils.metrics import print_eval, save_eval, summarize_predictions
 from vnlp.utils.plotting import plot_history
+from vnlp.utils.runtime import loader_kwargs, progress
 
 # Charset / kích thước ảnh cố định lúc import (đổi ocr.* trong config.yaml thì restart kernel + train lại)
 IMG_W, IMG_H, CHARS = config.IMG_W, config.IMG_H, config.CHARS
@@ -68,6 +69,9 @@ def decode_predictions(preds):
 class OCRDataset(Dataset):
     def __init__(self, root_dir, augment=True):
         self.samples = load_samples(root_dir)
+        # Tiền xử lý xác định (không ngẫu nhiên) -> làm 1 lần, giữ RAM; augmentation vẫn chạy mỗi epoch
+        self.cache = (preprocess_many([s[0] for s in self.samples])
+                      if config.CFG["ocr"].get("cache_preprocessed", True) else None)
         if augment:
             self.transform = transforms.Compose([
                 transforms.ToPILImage(),
@@ -92,8 +96,11 @@ class OCRDataset(Dataset):
 
     def __getitem__(self, idx):
         image_path, text, sample_id = self.samples[idx]
-        image = imread(image_path)
-        processed = np.zeros((IMG_H, IMG_W), dtype=np.uint8) if image is None else preprocess_plate(image)
+        if self.cache is not None:
+            processed = self.cache[idx]
+        else:
+            image = imread(image_path)
+            processed = np.zeros((IMG_H, IMG_W), dtype=np.uint8) if image is None else preprocess_plate(image)
         return self.transform(processed), self.encode(text), text, sample_id
 
 
@@ -141,8 +148,8 @@ class CRNN(nn.Module):
 def make_loader(root_dir, augment, batch_size, shuffle, num_workers=None):
     num_workers = config.default_num_workers() if num_workers is None else num_workers
     dataset = OCRDataset(root_dir, augment=augment)
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers,
-                      pin_memory=torch.cuda.is_available(), collate_fn=collate_fn)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, collate_fn=collate_fn,
+                      **loader_kwargs(num_workers))
 
 
 def run_epoch(model, loader, criterion, device, optimizer=None, desc=""):
@@ -152,7 +159,7 @@ def run_epoch(model, loader, criterion, device, optimizer=None, desc=""):
     total_loss, correct, total, examples = 0.0, 0, 0, []
 
     with torch.set_grad_enabled(training):
-        for images, labels, lengths, texts, _ in tqdm(loader, desc=desc, leave=False):
+        for images, labels, lengths, texts, _ in progress(loader, desc=desc, leave=False):
             images, labels = images.to(device), labels.to(device)
             outputs = model(images)
             outputs_ctc = outputs.permute(1, 0, 2)  # (T, B, C)
@@ -245,7 +252,7 @@ def evaluate(test_dir=None, weights=None, out_dir=None, batch_size=None, num_wor
 
     records = []
     with torch.no_grad():
-        for images, _, _, texts, ids in tqdm(loader, desc="Test CRNN"):
+        for images, _, _, texts, ids in progress(loader, desc="Test CRNN"):
             preds = decode_predictions(model(images.to(device)).argmax(2))
             records += [{"sample_id": i, "gt": g, "pred": p} for i, g, p in zip(ids, texts, preds)]
 

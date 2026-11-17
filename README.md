@@ -22,8 +22,8 @@ Trên kaggle.com: **Settings → Phone verification** – bắt buộc, không c
 
 Chọn 1 cách:
 
-* **Dùng data nhóm đã upload**: nhờ người giữ dataset `<owner>/cs406-vnlp-data` share cho bạn trên Kaggle,
-  rồi sửa `config.yaml`: `kaggle.data_dataset: "<owner>/cs406-vnlp-data"`.
+* **Dùng data nhóm đã upload**: nhờ người upload (tài khoản `<owner>`) share các dataset `cs406-data-*` cho bạn
+  trên Kaggle, rồi sửa `config.yaml`: `kaggle.data_owner: "<owner>"`.
 * **Tự chuẩn bị**: tải [data từ Drive](https://drive.google.com/drive/folders/1AAwdv0Kv0_UM4muJe-nmlt7rWpdf4prR?usp=sharing),
   giải nén **cùng cấp** với thư mục repo:
   ```
@@ -57,6 +57,45 @@ Lệnh in ra link Kaggle để theo dõi (tab **Logs**).
 3. `git commit` → `python -m vnlp.kaggle_push` → `pull`.
 
 Mỗi kết quả kèm `config_used.yaml` + `run_info.json` (commit, thời gian) để biết nó từ code/tham số nào.
+
+**Thí nghiệm camera mới (leave-one-domain-out)** – train view3+view4, test toàn bộ camera UIT (view1+view2):
+
+```yaml
+# config.yaml
+experiment: lodo-uit
+split:
+  protocol: lodo            # mặc định: stratified
+  test_views: [view1, view2]
+```
+
+Chạy lại 2 lệnh split (tạo `dataset/splits_lodo-view1-view2/`, không đè split chính) → `python -m vnlp.kaggle_push`.
+So sánh với `baseline` ở dòng view1/view2 để biết mô hình tổng quát sang camera chưa thấy tốt đến đâu.
+
+**RQ1 – nguồn dữ liệu nào giúp YOLO tổng quát sang camera chưa thấy** (3 nhánh, cùng 200 ảnh train, cùng test view1+view2+view5):
+
+| Nhánh | `experiment` | `split.train_views` | `split.train_quota` |
+|---|---|---|---|
+| A – chỉ view3 | `rq1-view3` | `[view3]` | `null` (view3 có đúng 200 ảnh train) |
+| B – chỉ view4 | `rq1-view4` | `[view4]` | `{view4: 200}` |
+| C – kết hợp | `rq1-mix` | `[view3, view4]` | `{view3: 100, view4: 100}` |
+
+Mỗi nhánh: `protocol: lodo`, `test_views: [view1, view2]`, đặt 2 dòng trên; chỉ train YOLO cho nhanh:
+trong mục `notebook:` đặt `run_crnn`, `run_parseq`, `run_pipeline` = `false` → `python -m vnlp.data.split_detection`
+→ `python -m vnlp.kaggle_push`.
+Split detection mỗi nhánh nằm riêng ở `dataset/splits_lodo-view1-view2_tr-.../` nên không đè nhau.
+Cần có sẵn split recognition lodo (`recognition_split_lodo-view1-view2.csv`) vì detection chia đồng bộ theo nó.
+
+**RQ2 – hiệu chỉnh hình học có giúp PARSeq đọc đúng cả biển không** (2 nhánh, cùng split, cùng tham số):
+
+| Nhánh | `experiment` | `preprocess.geometric` |
+|---|---|---|
+| A – crop gốc (đối chứng) | `rq2-raw` | `false` |
+| B – có hiệu chỉnh (perspective + deskew) | `rq2-geo` | `true` (mặc định) |
+
+Chỉ khác nhau đúng 2 bước hiệu chỉnh; upscale, xám, enhance, resize vẫn chạy ở cả hai nhánh.
+Chỉ train PARSeq cho nhanh: trong mục `notebook:` đặt `run_crnn`, `run_detection`, `run_pipeline` = `false`
+→ `python -m vnlp.kaggle_push`. So sánh exact-match accuracy và CER trên tập test.
+Model train với giá trị nào thì eval/pipeline/demo phải để đúng giá trị đó.
 
 ---
 

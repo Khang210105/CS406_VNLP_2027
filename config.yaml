@@ -12,6 +12,8 @@ experiment: baseline         # tên lần thử nghiệm -> kết quả lưu ở
                              # đổi tên mỗi khi đổi code/tham số, vd: parseq-pretrained, crnn-lr1e-4
 seed: 42
 num_workers: auto            # auto = 0 trên Windows, 4 trên Linux/Kaggle
+progress_bar: auto           # thanh tiến trình theo batch. auto = tắt trên Kaggle (output quá nhiều
+                             # làm notebook bị ngắt "Timeout waiting for IOPub output"), bật ở local
 
 paths:
   # Quy trình data: raw -> (crop_plates) crops_dir -> (label_plates) nhãn gợi ý
@@ -32,11 +34,29 @@ prelabel:
   overwrite: false                       # true: ghi đè cả label.txt đã có nội dung
 
 split:
-  ratios: [0.70, 0.15, 0.15]       # train / val / test
+  # stratified: mỗi view chia train/val/test theo ratios (gom theo biển số)     -> dataset/splits/
+  # lodo      : leave-one-domain-out – test = TOÀN BỘ test_views (camera chưa thấy khi train),
+  #             train/val chia từ các view còn lại; biển có ở test_views bị loại khỏi train/val
+  #             -> dataset/splits_lodo-<test_views>/
+  # Đổi protocol thì chạy lại 2 lệnh split; train/eval tự dùng đúng thư mục theo protocol.
+  protocol: stratified
+  test_views: [view1, view2]       # chỉ dùng khi protocol = lodo (view liên kết, vd view5, tự theo)
+  ratios: [0.70, 0.15, 0.15]       # train / val / test (lodo: chỉ dùng tỉ lệ train:val)
+  # Chỉ cho detection + protocol lodo (thí nghiệm RQ1). null = như cũ (mọi view không phải test).
+  train_views: null                # vd [view3]: chỉ view này vào train/val
+  train_quota: null                # vd {view3: 100, view4: 100}: số ảnh train mỗi view (lấy mẫu theo seed),
+                                   #   val lấy theo cùng tỉ lệ val:train
+                                   # -> dataset/splits_lodo-<test_views>_tr-<view>[x<quota>]-.../detection/
   jpeg_quality: 95                 # khi đổi crop PNG -> image.jpg
   detection_views: [view1, view2, view3, view4, view5]
   linked_views:                    # view con luôn cùng split với view gốc (cùng tên ảnh)
     view5: view1                   # view5 = khung hình rộng của chính các frame view1
+
+# ── Tiền xử lý crop biển (vnlp/recognition/preprocess.py) ─────────────
+preprocess:
+  geometric: true                  # hiệu chỉnh hình học: perspective (4 góc) + deskew
+                                   # false = nhánh đối chứng RQ2 (crop gốc), các bước khác giữ nguyên
+                                   # đổi giá trị thì phải train lại OCR; eval/pipeline phải dùng cùng giá trị
 
 # ── OCR chung ──────────────────────────────────────────────────────────
 ocr:
@@ -44,6 +64,8 @@ ocr:
   img_w: 320
   img_h: 128
   max_label_length: 12
+  cache_preprocessed: true         # tiền xử lý mỗi crop 1 lần rồi giữ trong RAM (~100 MB) thay vì lặp lại
+                                   # mỗi epoch trên CPU (CRNN: ~45s/epoch -> vài giây); augmentation vẫn ngẫu nhiên
 
 crnn:
   epochs: 100
@@ -104,11 +126,11 @@ detection:
 
 # ── Kaggle (python -m vnlp.kaggle_push) ────────────────────────────────
 kaggle:
-  # Dataset data dùng trên Kaggle:
-  #   null              -> tự upload data trên máy mình lên <user của bạn>/cs406-vnlp-data
-  #   "owner/slug"      -> dùng dataset private đã được share cho bạn (không cần data trên máy)
-  data_dataset: null
-  kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>
+  # Data trên Kaggle: mỗi bộ split 1 dataset private <owner>/cs406-data-<bộ split>
+  #   null    -> tự upload data trên máy mình (tài khoản của bạn)
+  #   "owner" -> dùng dataset tài khoản `owner` đã upload + share cho bạn (không cần data trên máy)
+  data_owner: null
+  kernel_slug: cs406-vnlp          # notebook trên Kaggle: <user>/<kernel_slug>-<experiment>
 
 # ── notebooks/main.ipynb ───────────────────────────────────────────────
 notebook:
@@ -117,8 +139,8 @@ notebook:
   run_data_overview: true
   run_crnn: true
   run_parseq: true
-  run_detection: false
-  run_pipeline: false              # cần YOLO + PARSeq weights
+  run_detection: true
+  run_pipeline: true               # cần YOLO + OCR (pipeline_ocr) cùng experiment; thiếu thì tự bỏ qua
   pipeline_ocr: parseq             # parseq | crnn
   pipeline_show: 6                 # số ảnh test vẽ kết quả
   # (repo_url để clone trên Kaggle nằm trong cell đầu notebook, vì phải clone xong mới đọc được file này)

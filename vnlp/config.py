@@ -45,6 +45,7 @@ def _set_dotted(d, key, value):
 
 def reload(overrides: dict | None = None):
     """Nạp lại config.yaml (+ env + overrides dạng {"a.b.c": value}) và tính lại mọi đường dẫn."""
+    global SPLIT_PROTOCOL, TEST_VIEWS, SPLIT_NAME, DET_SPLIT_TAG, DET_TRAIN_VIEWS, DET_TRAIN_QUOTA
     global CFG, SEED, EXPERIMENT, RAW_DIR, CROPS_DIR, PROCESSED_DIR, DATA_DIR, OUTPUT_ROOT, OUTPUT_DIR
     global RECOG_SPLIT_DIR, RECOG_TRAIN_DIR, RECOG_VAL_DIR, RECOG_TEST_DIR, RECOG_MANIFEST
     global RECOG_OUTPUT_DIR, CRNN_OUTPUT_DIR, PARSEQ_OUTPUT_DIR, CRNN_WEIGHTS, PARSEQ_WEIGHTS
@@ -70,12 +71,47 @@ def reload(overrides: dict | None = None):
     OUTPUT_ROOT = _resolve(paths["output_dir"])
     OUTPUT_DIR = OUTPUT_ROOT / EXPERIMENT  # mỗi experiment một thư mục kết quả riêng
 
+    # Bộ split theo protocol: stratified -> splits/, lodo -> splits_lodo-<test_views>/
+    split_cfg = cfg.get("split", {})
+    SPLIT_PROTOCOL = split_cfg.get("protocol", "stratified")
+    TEST_VIEWS = list(split_cfg.get("test_views") or [])
+    if SPLIT_PROTOCOL == "lodo":
+        if not TEST_VIEWS:
+            raise ValueError("split.protocol = lodo nhưng split.test_views rỗng")
+        tag = "_lodo-" + "-".join(TEST_VIEWS)
+    elif SPLIT_PROTOCOL == "stratified":
+        tag = ""
+    else:
+        raise ValueError(f"split.protocol không hợp lệ: {SPLIT_PROTOCOL} (stratified | lodo)")
+    SPLIT_NAME = "splits" + tag
+
+    # Detection có thể giới hạn view/số ảnh train (thí nghiệm RQ1) -> thư mục split riêng
+    #   splits_lodo-<test_views>_tr-<view>[x<quota>]-.../detection/ ; OCR không bị ảnh hưởng
+    DET_TRAIN_VIEWS = list(split_cfg.get("train_views") or [])
+    DET_TRAIN_QUOTA = {str(k): int(v) for k, v in (split_cfg.get("train_quota") or {}).items()}
+    det_tag = ""
+    if DET_TRAIN_VIEWS or DET_TRAIN_QUOTA:
+        if SPLIT_PROTOCOL != "lodo":
+            raise ValueError("split.train_views / split.train_quota chỉ dùng với split.protocol = lodo")
+        bad = [v for v in DET_TRAIN_QUOTA if DET_TRAIN_VIEWS and v not in DET_TRAIN_VIEWS]
+        if bad:
+            raise ValueError(f"split.train_quota có view không nằm trong split.train_views: {bad}")
+        linked = split_cfg.get("linked_views") or {}
+        clash = [v for v in set(DET_TRAIN_VIEWS) | set(DET_TRAIN_QUOTA)
+                 if v in TEST_VIEWS or linked.get(v) in TEST_VIEWS]
+        if clash:
+            raise ValueError(f"split.train_views/train_quota chứa view thuộc tập test {TEST_VIEWS}: {clash} "
+                             "-> tập train detection sẽ rỗng")
+        train_views = DET_TRAIN_VIEWS or sorted(DET_TRAIN_QUOTA)
+        det_tag = "_tr-" + "-".join(f"{v}x{DET_TRAIN_QUOTA[v]}" if v in DET_TRAIN_QUOTA else v
+                                    for v in train_views)
+
     # Recognition (OCR)
-    RECOG_SPLIT_DIR = DATA_DIR / "splits" / "recognition"
+    RECOG_SPLIT_DIR = DATA_DIR / SPLIT_NAME / "recognition"
     RECOG_TRAIN_DIR = RECOG_SPLIT_DIR / "train"
     RECOG_VAL_DIR = RECOG_SPLIT_DIR / "val"
     RECOG_TEST_DIR = RECOG_SPLIT_DIR / "test"
-    RECOG_MANIFEST = DATA_DIR / "recognition_split.csv"
+    RECOG_MANIFEST = DATA_DIR / f"recognition_split{tag}.csv"
     RECOG_OUTPUT_DIR = OUTPUT_DIR / "recognition"
     CRNN_OUTPUT_DIR = RECOG_OUTPUT_DIR / "crnn"
     PARSEQ_OUTPUT_DIR = RECOG_OUTPUT_DIR / "parseq"
@@ -83,9 +119,10 @@ def reload(overrides: dict | None = None):
     PARSEQ_WEIGHTS = PARSEQ_OUTPUT_DIR / "parseq_model.ckpt"
 
     # Detection (YOLO)
-    DET_SPLIT_DIR = DATA_DIR / "splits" / "detection"
+    DET_SPLIT_TAG = det_tag
+    DET_SPLIT_DIR = DATA_DIR / (SPLIT_NAME + det_tag) / "detection"
     DET_DATA_YAML = DET_SPLIT_DIR / "data.yaml"
-    DET_MANIFEST = DATA_DIR / "detection_split.csv"
+    DET_MANIFEST = DATA_DIR / f"detection_split{tag}{det_tag}.csv"
     DET_OUTPUT_DIR = OUTPUT_DIR / "detection"
     DET_RUN_NAME = cfg["detection"]["run_name"]
     YOLO_WEIGHTS = DET_OUTPUT_DIR / DET_RUN_NAME / "weights" / "best.pt"

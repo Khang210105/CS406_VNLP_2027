@@ -1,0 +1,678 @@
+image_id,split,view,source_image,n_boxes,split_source
+view1_00001,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_0103-34607_171046375527_jpg.rf.95kr4WDYe48A7PzXQdjW.jpg,1,recognition
+view1_00002,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_0183-34607_165026673788_jpg.rf.zQuYvpZCuPdpqt5384Mi.jpg,1,recognition
+view1_00003,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_01AX-11987_172852211814_jpg.rf.P0JGRHyXuJMYkqJeCLMj.jpg,1,recognition
+view1_00004,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_01M1-02770_115436101319_jpg.rf.PxBLyX5AFNMAjsRUssnj.jpg,1,balanced
+view1_00005,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_03P1-76996_115416098000_jpg.rf.09GcHMv7jVNDLMJXD7L3.jpg,1,recognition
+view1_00006,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_1821-0052_173708807773_jpg.rf.LVPCMnBBOKz865cdYQrv.jpg,1,recognition
+view1_00007,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_173758549127_jpg.rf.3wXvoijfdIrbeCnoEoE8.jpg,1,recognition
+view1_00008,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_173956882591_jpg.rf.YRVcub2i6DlgWAiRxOYj.jpg,1,recognition
+view1_00009,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_175017406420_jpg.rf.sVooqHc53fToREpDmw3j.jpg,1,recognition
+view1_00010,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_37L3-04531_172050772765_jpg.rf.m6UVgJKHYo6Lir3Wug4q.jpg,1,recognition
+view1_00011,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_173759023264_jpg.rf.3FRT6eKNZQa8VJ6Nsfs1.jpg,1,recognition
+view1_00012,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_173959222898_jpg.rf.98pTCRbhA3nugKlndfW7.jpg,1,recognition
+view1_00013,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_175018777544_jpg.rf.abHR7laKY3OfyEJu0IxE.jpg,1,recognition
+view1_00014,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_41P9-5552_174516934039_jpg.rf.FOrgmpoloRF1Q1cXOMVq.jpg,1,recognition
+view1_00015,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_47P9-5552_171428235941_jpg.rf.I0kQH2NkUXf2s3EN6ZVv.jpg,1,recognition
+view1_00016,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_47P9-5552_172555969250_jpg.rf.TZlgCyrrww9ibLnytrtR.jpg,1,recognition
+view1_00017,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_171603431052_jpg.rf.ZlQgqG3Z8kI0xnHqj9Tl.jpg,1,recognition
+view1_00018,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_171645311411_jpg.rf.QpmI33vZl8FU879igoK6.jpg,1,recognition
+view1_00019,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_172755320968_jpg.rf.HcZZvSymZxwF7RhvAvll.jpg,1,recognition
+view1_00020,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49MA-17040_172757373361_jpg.rf.ASKFn2Vz6WbXZNCradkA.jpg,1,recognition
+view1_00021,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49V9-7633_181601147446_jpg.rf.6bUfKaW6q7YJgeLTFtVR.jpg,1,recognition
+view1_00022,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49V9-7633_191443161235_jpg.rf.OkPXKP7u6UNscAvpomc4.jpg,1,recognition
+view1_00023,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AA-61123_162548173014_jpg.rf.p0od6JNkdELmm6eTAAg8.jpg,1,recognition
+view1_00024,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AA-61123_162801836390_jpg.rf.jM5muftcnkUD2keK53py.jpg,1,recognition
+view1_00025,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05106_172003446834_jpg.rf.Zc76Oqh8VWdrRALNEp8K.jpg,1,recognition
+view1_00026,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05106_173309625441_jpg.rf.hJjrHYS7Ly4Pyl3KuCc3.jpg,1,recognition
+view1_00027,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_163813768169_jpg.rf.ogq0MUww6uZGIwWagy7B.jpg,1,recognition
+view1_00028,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_171612707747_jpg.rf.5MEJ58BKRgRrQzLwB23x.jpg,1,recognition
+view1_00029,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_172801686300_jpg.rf.d5MyhKAtxQ6bsyAaTjxN.jpg,1,recognition
+view1_00030,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-65987_112532156662_jpg.rf.SEUshk8SLfZLCIRbb2KC.jpg,1,recognition
+view1_00031,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_112815869255_jpg.rf.UiYAT5WESjBiBcEguKSn.jpg,1,recognition
+view1_00032,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_113100365769_jpg.rf.dSSaaoaelV8u2jHQdIz6.jpg,1,recognition
+view1_00033,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_120316139982_jpg.rf.PEw99wwvjIh1SX0qBml1.jpg,1,recognition
+view1_00034,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_101507476891_jpg.rf.jD9YurcjnizEl0w3YZZ2.jpg,1,recognition
+view1_00035,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_132515415912_jpg.rf.h8lpG0YszseyL7WAGKQW.jpg,1,recognition
+view1_00036,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_144519411995_jpg.rf.0WIgIOfVL5gxMqSSZYKt.jpg,1,recognition
+view1_00037,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_114959391087_jpg.rf.tgHOvJXVVbLE7FTjmmMF.jpg,1,recognition
+view1_00038,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_184702487217_jpg.rf.qwePFG1qgeoRpefmauOc.jpg,1,recognition
+view1_00039,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_190537820279_jpg.rf.9isSphInfHQff2Dn8nU0.jpg,1,recognition
+view1_00040,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_192257174080_jpg.rf.oBz8Q4pjWWSMH4apTS3w.jpg,1,recognition
+view1_00041,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_194136669205_jpg.rf.phx2HxOEyYViarT04fT3.jpg,1,recognition
+view1_00042,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_201519559898_jpg.rf.EHKSKfsXN9fT4AWGuLia.jpg,1,recognition
+view1_00043,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_110850166276_jpg.rf.YN9eKF8s5okxrP9YFK5D.jpg,1,recognition
+view1_00044,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_111355553188_jpg.rf.4gacOmVsKhN0TX8Wp5CW.jpg,1,recognition
+view1_00045,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_115212895309_jpg.rf.bIgxGKRW3lgPlG9BE0hP.jpg,1,recognition
+view1_00046,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-32893_102832907893_jpg.rf.mcR9fxFYmjEWMyNDa3rf.jpg,1,recognition
+view1_00047,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-32893_121020149315_jpg.rf.l8j7bJVseAKMja5d5U7g.jpg,1,recognition
+view1_00048,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_164531164884_jpg.rf.ytRPk4TwQ866vPzWrTSM.jpg,1,recognition
+view1_00049,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_170308292467_jpg.rf.IzsOZTFnY1hSFTGN3nqR.jpg,1,recognition
+view1_00050,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_170814982617_jpg.rf.aDlYS7SPCsGBhCynwGQy.jpg,1,recognition
+view1_00051,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_173557120361_jpg.rf.7JIIMhSoYAnwhz8qMSRJ.jpg,1,recognition
+view1_00052,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-10474_112910257584_jpg.rf.isk39byJnlLUpDTJecga.jpg,1,recognition
+view1_00053,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-10474_173639813852_jpg.rf.JCTaRP9T1PR0VD7RmVGD.jpg,1,balanced
+view1_00054,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_114021245831_jpg.rf.FAMw1BNEeuEFDkXLzHFw.jpg,1,recognition
+view1_00055,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_115543842640_jpg.rf.bk3L7IMPXJ0kxcyvUJWz.jpg,1,recognition
+view1_00056,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_174751295609_jpg.rf.h3peS4qefXnqH58t4Hal.jpg,1,recognition
+view1_00057,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_175843384456_jpg.rf.o9yDdjOjqOyWjFTTPOMm.jpg,1,recognition
+view1_00058,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_181921376621_jpg.rf.Ex0oUVPus4yKpWl75fkv.jpg,1,recognition
+view1_00059,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_182253703624_jpg.rf.DjnEGxn5hq4RP4bTlluR.jpg,1,recognition
+view1_00060,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_173736645163_jpg.rf.eebEDR4Rtco1CxqZkwCO.jpg,1,recognition
+view1_00061,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_173947697163_jpg.rf.So8j2kjei5HctNIpuGne.jpg,1,recognition
+view1_00062,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_174332836684_jpg.rf.gcVx5uSz1F5xo4QqIBBq.jpg,1,recognition
+view1_00063,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_174505269307_jpg.rf.k1xOciduFDJ8Q0FzYMcj.jpg,1,recognition
+view1_00064,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_174201792497_jpg.rf.KTQxxIgrYxDtivjxniDG.jpg,1,recognition
+view1_00065,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_174605181500_jpg.rf.vLUvTTlLpYI0mKntUGt7.jpg,1,recognition
+view1_00066,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_182724961083_jpg.rf.XrPPVJEoTLhmeAISf3s5.jpg,1,recognition
+view1_00067,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54Y6-8865_183955488307_jpg.rf.aLbbDkbC3jsleVnH9XfH.jpg,1,recognition
+view1_00068,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_171252152427_jpg.rf.h5ueHyEHf3FIH6WAAGxp.jpg,1,recognition
+view1_00069,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_171750380315_jpg.rf.ej3BCrfsvfrT7cWN8tr2.jpg,1,recognition
+view1_00070,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_173558069487_jpg.rf.KPDvDgI6MI25IZdrRX9k.jpg,1,recognition
+view1_00071,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-9163_121150314705_jpg.rf.LRtw8AmvNo5NDZLLrAbq.jpg,1,recognition
+view1_00072,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5962-74324_175054695601_jpg.rf.0mW9KIMR5xYSfJcX0oSK.jpg,1,recognition
+view1_00073,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5962-98560_115537427154_jpg.rf.9htxfyWMApdTny9Y3JOA.jpg,1,recognition
+view1_00074,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5981-68919_120116305677_jpg.rf.QJ7c9rOIhrHxWxrGWxbh.jpg,1,recognition
+view1_00075,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5981-69919_184839507212_jpg.rf.UTvsdSxRe4q159HKlBXb.jpg,1,recognition
+view1_00076,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5993-57950_171703172096_jpg.rf.iztdeAVEl1TDm0EbBf4t.jpg,1,recognition
+view1_00077,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59C4-08177_163302005041_jpg.rf.T9oVjzvX9Mjpecehn0LP.jpg,1,recognition
+view1_00078,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59C4-08177_164256850908_jpg.rf.xnqO6M0BBx6NFMykTec9.jpg,1,recognition
+view1_00079,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03602_161738500754_jpg.rf.TaUTk06oLU9jW1bBcICU.jpg,1,recognition
+view1_00080,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03682_162004780127_jpg.rf.GKaBIXnZtqixiBEOMvOe.jpg,2,recognition
+view1_00081,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03682_162056516681_jpg.rf.kLlTVm0VJqIKz5K1D4FV.jpg,1,recognition
+view1_00082,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-4324_171848749534_jpg.rf.QiJpdxSywyHgo0KGQAbv.jpg,1,recognition
+view1_00083,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-74324_171016071014_jpg.rf.eVnSmxdoBYJrpdsQ0MN1.jpg,1,recognition
+view1_00084,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-74324_175052190310_jpg.rf.XDkatEFGC7MzPYJ5f8eB.jpg,1,recognition
+view1_00085,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-98560_115537204790_jpg.rf.PDGkbOLTYlpDqV5xB57T.jpg,1,recognition
+view1_00086,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59M1-4110_143918530939_jpg.rf.oqEpQrWK2wZ1xJSDcanM.jpg,2,recognition
+view1_00087,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59MA-14118_103420767048_jpg.rf.chKn5TLGzoOAxUuFNrKl.jpg,1,recognition
+view1_00088,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59MA-14118_103424577570_jpg.rf.k3F7Rt2O2E20CSTKtJds.jpg,1,recognition
+view1_00089,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57885_155053277252_jpg.rf.9kF4rZsobApBEKtZ6NWE.jpg,1,recognition
+view1_00090,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57950_164322216231_jpg.rf.zKhBUDeG1DHBfN2xq4jk.jpg,1,recognition
+view1_00091,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57950_174111654182_jpg.rf.rfqYJk7sSjdSedCvk3Hd.jpg,1,recognition
+view1_00092,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59T2-40262_172038698785_jpg.rf.JM72SDzcG4fdbgoZHopI.jpg,1,recognition
+view1_00093,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59T2-40262_172812204272_jpg.rf.CfH02IHquLsGMnAWkkFD.jpg,1,recognition
+view1_00094,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-59299_164314438331_jpg.rf.4YMz2sfaO1QGAeIDhd7Y.jpg,1,recognition
+view1_00095,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_115409149769_jpg.rf.3gRo91I9JZvp34eAccTw.jpg,1,recognition
+view1_00096,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_120614826645_jpg.rf.9AIPRIK8bZDdORoCAbj8.jpg,1,recognition
+view1_00097,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_164656132520_jpg.rf.8sR0Wsi7HlRQinJgVXm9.jpg,1,recognition
+view1_00098,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_172629870215_jpg.rf.LiIoeS8OgOY0vR6wsWNA.jpg,1,recognition
+view1_00099,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_172817788395_jpg.rf.3QSIPECSgxiIDuIG5ojf.jpg,1,recognition
+view1_00100,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66065_111348207913_jpg.rf.cHcAUrEp1KbA9qLrZLzK.jpg,1,recognition
+view1_00101,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66865_161307982381_jpg.rf.o0vrSRBHlAmpWRcuRb9M.jpg,1,recognition
+view1_00102,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66865_161629539224_jpg.rf.YqfTW1s6INPKEdzNqxZE.jpg,2,recognition
+view1_00103,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59VA-19798_163332574879_jpg.rf.gbbRHwUXemNeLkwKUXfz.jpg,1,recognition
+view1_00104,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X0-37839_165127766147_jpg.rf.DUVnE1JHl0kXkb9FlZom.jpg,1,recognition
+view1_00105,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_171854918328_jpg.rf.QOjkmnOJFUs4YgwAkzXG.jpg,1,recognition
+view1_00106,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_185711675639_jpg.rf.BhiSHBcyEO1KZZKlZOqI.jpg,1,recognition
+view1_00107,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_200547557664_jpg.rf.UuJCcUsnTLX19xWoziY2.jpg,1,recognition
+view1_00108,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-81062_170647725181_jpg.rf.BwmooVHgKJZKRnGVShTq.jpg,1,recognition
+view1_00109,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-81862_170747567256_jpg.rf.NkcUOpfrf7wOtb7o9et7.jpg,1,recognition
+view1_00110,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-19348_174029856457_jpg.rf.fczYl9zmxWNWTetkQ7Ot.jpg,1,recognition
+view1_00111,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-25781_152415271173_jpg.rf.tnRs2DbTU2rGhIO27Lft.jpg,1,recognition
+view1_00112,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-61892_161445929253_jpg.rf.HbnyzVmgXzSl3JCIaVUm.jpg,1,recognition
+view1_00113,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X4-12879_200208219948_jpg.rf.exWTyoiZJiVWuBTTvnfs.jpg,1,recognition
+view1_00114,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185026464019_jpg.rf.crygRSPKb62SiFF7klF9.jpg,1,recognition
+view1_00115,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185049355300_jpg.rf.qRSDJasiB3VzYqs7dBW3.jpg,1,recognition
+view1_00116,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185824869937_jpg.rf.Ja4zt985Du3ItdsGY50d.jpg,1,recognition
+view1_00117,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-62607_162115358177_jpg.rf.83nY8ssYleEDQHmynHFZ.jpg,1,recognition
+view1_00118,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-66197_111531916048_jpg.rf.CjlHXR12tgsjhsVCSxUz.jpg,1,recognition
+view1_00119,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-66197_172316098181_jpg.rf.2TWJ1fH64cnasUXQKbiD.jpg,1,recognition
+view1_00120,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59Y3-60456_113204209540_jpg.rf.s6PoeIX1kmL15iLKgyPb.jpg,1,recognition
+view1_00121,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59YA-17281_110311430615_jpg.rf.rQf9ceICz8MxUDakO9gx.jpg,1,recognition
+view1_00122,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59YA_160413775038_jpg.rf.kSBZGd2pYSSS7vncvxgd.jpg,1,recognition
+view1_00123,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6007-90235_165718799758_jpg.rf.aPQN6ngPCSx7Qr1odWdQ.jpg,1,recognition
+view1_00124,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6061-48573_095207450928_jpg.rf.7cxd7jENcrlPrrbAwY4o.jpg,1,recognition
+view1_00125,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6061-53232_174417787629_jpg.rf.pyZuspKXHPEcujGRY8b5.jpg,1,recognition
+view1_00126,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74700_173556416333_jpg.rf.KOQdaR7ARQ2UmKrKNaAZ.jpg,1,recognition
+view1_00127,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_165715802937_jpg.rf.H9anaO4hArhnvrTEoaPg.jpg,1,recognition
+view1_00128,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_172719000133_jpg.rf.dq8tBwarXUJtItwyhZaH.jpg,1,recognition
+view1_00129,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_180546241427_jpg.rf.l7lDFDEiLXNM7QNt7EOs.jpg,1,recognition
+view1_00130,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_171355879564_jpg.rf.PF9ynYHr46GnU3BfEL9P.jpg,1,recognition
+view1_00131,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_174735245389_jpg.rf.qvXb6v78fCqZBry9AJpV.jpg,1,recognition
+view1_00132,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_175229332456_jpg.rf.8rMXcUzMAhmvCxAdwiAF.jpg,1,recognition
+view1_00133,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6087-10235_170805249789_jpg.rf.7V19Oihku5K9MQzj29bD.jpg,1,recognition
+view1_00134,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6087-90235_105848347799_jpg.rf.8iU1TahmKTRDqhj2UeEx.jpg,1,recognition
+view1_00135,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-19880_111707178358_jpg.rf.YrdycA3LJRpoivb2uWbU.jpg,1,recognition
+view1_00136,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-19880_181522220831_jpg.rf.Yyf4inXSzlpgn1Ae2jF6.jpg,1,recognition
+view1_00137,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-58424_165502125405_jpg.rf.rHvpsvA6CX133LiUcnQD.jpg,1,recognition
+view1_00138,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-58424_171416939529_jpg.rf.X0LlBCwJpE53nLBXD8cA.jpg,1,recognition
+view1_00139,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B5-74780_164119696858_jpg.rf.pwVliZHBJKO7SJ3tFarK.jpg,1,recognition
+view1_00140,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B5-74780_173603745835_jpg.rf.p2HWRfvKL9auieuwnh9x.jpg,1,recognition
+view1_00141,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B6-64951_170333940273_jpg.rf.B7aTA59HYswISMTnItXU.jpg,1,recognition
+view1_00142,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B7-90235_170020442621_jpg.rf.4K5tmYeuQK4jpX4Std70.jpg,1,recognition
+view1_00143,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60F2-64456_172930076923_jpg.rf.ymwbbkgE6S05SpmkymbY.jpg,1,recognition
+view1_00144,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60F3-30550_132323690411_jpg.rf.HOmRhdUWi8T0LPTATIhO.jpg,1,recognition
+view1_00145,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-48577_104630104926_jpg.rf.dWMgnH4qC4jwLttACjzG.jpg,1,recognition
+view1_00146,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-48577_163734980130_jpg.rf.aRUC7td2W1BvQdykJRuB.jpg,1,recognition
+view1_00147,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-51718_120039089596_jpg.rf.q7YAJyz2qV7VJtD8LW30.jpg,1,recognition
+view1_00148,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-51718_181644837905_jpg.rf.OV5eeWeQClcPGXPv86ah.jpg,1,recognition
+view1_00149,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_114952120402_jpg.rf.0K1zh22PjjSp5XZdPciq.jpg,1,recognition
+view1_00150,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_181641297262_jpg.rf.DbQGCXloaBzv9mgwuDaw.jpg,1,recognition
+view1_00151,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_184453765638_jpg.rf.JBcdMKCQUT6Xho3C21dv.jpg,1,recognition
+view1_00152,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6101-91688_163848361046_jpg.rf.PBykWeLuVSjQnI0LUxBv.jpg,1,recognition
+view1_00153,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_113034069562_jpg.rf.tCLLHtAeq4oRfIdB11mg.jpg,1,recognition
+view1_00154,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_162614374896_jpg.rf.JtRew6Vf1jjPms8KabGf.jpg,1,recognition
+view1_00155,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_163816791557_jpg.rf.GwQdaouH86hbn6D888UW.jpg,1,recognition
+view1_00156,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-48496_101129995129_jpg.rf.vx0S6PINNoDKAA8LyqF0.jpg,1,recognition
+view1_00157,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-48496_114458793738_jpg.rf.6G6BY2p9rFgPYMl5yyPE.jpg,1,recognition
+view1_00158,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-80454_171459510321_jpg.rf.yrfJGNFQfRJfhbai9Ekf.jpg,1,recognition
+view1_00159,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-80454_172821825491_jpg.rf.1B4XtPr6sPPeQ4zg51bs.jpg,1,recognition
+view1_00160,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171410828811_jpg.rf.8M82ksdSX2TJDBqQBhUb.jpg,1,recognition
+view1_00161,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171440665057_jpg.rf.SuZ1Wykkabf3olfW4xYK.jpg,1,recognition
+view1_00162,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171947711097_jpg.rf.8lw4WruZXxifbVApcoHu.jpg,1,recognition
+view1_00163,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-10700_102955967405_jpg.rf.3Rj1IpTIuWQAPNv8OCKV.jpg,1,recognition
+view1_00164,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-13021_114332924397_jpg.rf.oe9BZoPYbXlTsnIpaezR.jpg,1,recognition
+view1_00165,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-13021_163854851617_jpg.rf.ahDzY9k7wGU90gIn4YH3.jpg,1,recognition
+view1_00166,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61D2-20961_161309376622_jpg.rf.MxfLUoXehFmeTPpWTf51.jpg,1,recognition
+view1_00167,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61D2-20961_165224274634_jpg.rf.7JyjHyMGZR6P7YD7Mxjk.jpg,1,recognition
+view1_00168,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_094354780668_jpg.rf.RzAAEXp8Ptc64MIIDYNF.jpg,1,recognition
+view1_00169,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_102501745276_jpg.rf.VjpeFtNWqlFwrdTIVZ7f.jpg,1,recognition
+view1_00170,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_143953165651_jpg.rf.Aa9a5AvXISKSqW4iYR0X.jpg,1,recognition
+view1_00171,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61E1-64942_174915794753_jpg.rf.SQo5bwveDaNkGhcfspjU.jpg,1,recognition
+view1_00172,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6211-82243_181855757136_jpg.rf.TKrQ8fbfT69a7OLtzjYZ.jpg,1,recognition
+view1_00173,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6211-82243_183417770578_jpg.rf.otTR8qZP9nbEcJpHQsGS.jpg,1,recognition
+view1_00174,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6281-43365_160449035252_jpg.rf.m4TzMorQwqbR9NSV8LaI.jpg,1,recognition
+view1_00175,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_62K1-16265_173105234823_jpg.rf.n2TGg9F0Sjy8zKCbKtY1.jpg,1,recognition
+view1_00176,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68AB-16827_183356188829_jpg.rf.p6e4cW4qSOznDLMMmE8e.jpg,1,recognition
+view1_00177,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68AB-16827_195528326128_jpg.rf.E7owcRI0QaRamOkEA6Rp.jpg,1,recognition
+view1_00178,test,view1,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68G1-53232_174548084396_jpg.rf.1tpXvt5JyxNeWLxKcQ2D.jpg,1,recognition
+view2_00001,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_01F8-5259_073209433596_jpg.rf.Rl7h6VIM1NvwiDpqfjA3.jpg,1,recognition
+view2_00002,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_01F8-5259_073740208692_jpg.rf.fixYvetbMOrbCf56x8qf.jpg,1,recognition
+view2_00003,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_1582-92831_073004604436_jpg.rf.buFV6TcrfOVs0jK4igrb.jpg,1,recognition
+view2_00004,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_15B2-92831_130040703906_jpg.rf.Tf9vyT3hWRKf2IrGnoB2.jpg,1,recognition
+view2_00005,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_17B1-82190_072802622330_jpg.rf.aKBZyaIqLI68lsIZisNu.jpg,1,recognition
+view2_00006,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_17B1-82190_073149243396_jpg.rf.DTg8vcUOBZS5nrg4cgzb.jpg,1,recognition
+view2_00007,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_17B1-82190_073943843110_jpg.rf.N3lRWnIWPEvPaxvok4zv.jpg,1,recognition
+view2_00008,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_17B1-82190_090816159890_jpg.rf.zixVd7TxXw3kSB86p4b1.jpg,1,recognition
+view2_00009,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_2911-43477_072945980281_jpg.rf.dyFeawREuEgnXB2SAfD6.jpg,1,recognition
+view2_00010,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_37L5-0816_082709607112_jpg.rf.H2CJelFcoTSDG5ozrUfO.jpg,1,recognition
+view2_00011,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_38X1-52864_090706035574_jpg.rf.T8BC5e5Uzc1hbZ502PqA.jpg,1,recognition
+view2_00012,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_38X1-52864_092541122764_jpg.rf.dU6JR76FjkXA5xZzfNdy.jpg,1,recognition
+view2_00013,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43C1-43178_071430738984_jpg.rf.Fh1vDtoYXydyvBM0Gfxp.jpg,1,recognition
+view2_00014,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43C1-43178_071714201958_jpg.rf.Vz80zDXl1rIon0KmuuYL.jpg,1,recognition
+view2_00015,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43C1-43178_072113696674_jpg.rf.faVa8U9okxwQCHikPRHC.jpg,1,recognition
+view2_00016,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_070001418225_jpg.rf.aM0NaRTijWMCJS8BbrJQ.jpg,1,recognition
+view2_00017,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_080214517102_jpg.rf.u9zIPLODNArnhWqp2phU.jpg,1,recognition
+view2_00018,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_081507218153_jpg.rf.H2UUIex6U9Ivqso45Kkl.jpg,1,recognition
+view2_00019,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_082701304780_jpg.rf.98aEn25TOjS6IMTV7jBn.jpg,1,recognition
+view2_00020,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_092424581839_jpg.rf.yCl1vRh1GhuBUCHGyZnS.jpg,1,recognition
+view2_00021,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_43F1-32548_120340025724_jpg.rf.psDGYdqi7D2qNrMKe5bV.jpg,1,recognition
+view2_00022,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_47P9-5552_090016338571_jpg.rf.A7hy9mNYLvykKfVHv7xe.jpg,1,recognition
+view2_00023,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_47P9-5552_091135896323_jpg.rf.8z5YwRfbspMno9LzhLp1.jpg,1,recognition
+view2_00024,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49AA-17040_083016707896_jpg.rf.4M2pHoqLy7dyQBhv7xew.jpg,1,recognition
+view2_00025,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49G1-58673_073805353451_jpg.rf.vyjN7rmdCeP33tiEpDMY.jpg,1,balanced
+view2_00026,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49M1-02758_072025694697_jpg.rf.nNqUJ1tkvdtTlw52pcg8.jpg,1,recognition
+view2_00027,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49M1-02758_072134292637_jpg.rf.qpVCEhlALBFQmUmKL0VE.jpg,1,recognition
+view2_00028,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49V5-7776_094556958847_jpg.rf.wa8xPdSrYRGCTU2NRsFC.jpg,1,recognition
+view2_00029,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49V5-7776_122345704696_jpg.rf.tFw6gAXMNJVa29abIqou.jpg,1,recognition
+view2_00030,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49V9-7633_072618871888_jpg.rf.rdwk3IsEBVJW1ozRmgsT.jpg,1,recognition
+view2_00031,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_49V9-7633_091025364094_jpg.rf.6pBeVsHziZGAmtf3o65b.jpg,1,recognition
+view2_00032,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_50AA-61123_074754457047_jpg.rf.r0SnOyDsoXbpy3gmh463.jpg,1,recognition
+view2_00033,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_50AB-05186_085053371849_jpg.rf.pbjTiEHAf5cZYkGJXYt4.jpg,1,recognition
+view2_00034,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_50AD-08592_085935103230_jpg.rf.exiSn3U8AJXC1Pf4ZCQn.jpg,1,recognition
+view2_00035,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_50N1-32893_085538918327_jpg.rf.pXKNH1fqs5G2Xlhw8iWZ.jpg,1,recognition
+view2_00036,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_50X1-11350_065255734485_jpg.rf.pZ7F2o7L8oBVVKKkWsVJ.jpg,1,recognition
+view2_00037,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_51R2-2665_064728888401_jpg.rf.1Z0pn8minzghO7Ns9qbG.jpg,1,recognition
+view2_00038,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_51X4-6156G_091150009505_jpg.rf.nZSqUl7AVl0y8b5l1B7D.jpg,1,recognition
+view2_00039,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_51X7-7355_090846294918_jpg.rf.aKIiHjpt5bdgIH0n6NGS.jpg,1,recognition
+view2_00040,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_53X6-5126_090155143266_jpg.rf.dbnUN2ugfuVcPv30vPYq.jpg,1,recognition
+view2_00041,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_54V6-9506_090804902299_jpg.rf.8cE3WMM7j0zoVnyM9EHC.jpg,1,recognition
+view2_00042,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_54Y6-8865_074800485427_jpg.rf.SVU5TKECXt9CPsHFpLtW.jpg,1,recognition
+view2_00043,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59B1-68919_100429474858_jpg.rf.I8GxZ3jdZvbRFPLel5dS.jpg,1,recognition
+view2_00044,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59C4-08177_072603848136_jpg.rf.C6fc91jEvhvuFiAuHxlF.jpg,1,recognition
+view2_00045,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59E2-01954_064523494724_jpg.rf.ZNW0q588NQQdYmDYTl4K.jpg,1,recognition
+view2_00046,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59F2-03682_070216069551_jpg.rf.2r5ZfbJcbJYavXEzthCo.jpg,1,recognition
+view2_00047,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59H1-47625_073420195153_jpg.rf.Xa3n2VKuHvvqU03etwQ8.jpg,1,recognition
+view2_00048,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_59Y3-60456_074118483887_jpg.rf.07uGQdbVDyExmyNfFWrp.jpg,1,recognition
+view2_00049,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_6039-28664_074921566740_jpg.rf.JBXhcNdD88f4hB3se4S5.jpg,1,recognition
+view2_00050,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_6211-6315_072531482191_jpg.rf.FSAAYkVxd6AnN8MYaAEh.jpg,1,recognition
+view2_00051,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_6281-09671_072628156467_jpg.rf.6NO5PA76nl1MB5LIzVgT.jpg,1,recognition
+view2_00052,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_62L1-75923_073509406542_jpg.rf.jyUlJ4DJ3unOd9KCvbei.jpg,1,recognition
+view2_00053,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_62M1-82243_074441658072_jpg.rf.YDX6E2T76PcOC9NHxjqN.jpg,1,recognition
+view2_00054,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_62N1-85345_124656502345_jpg.rf.blDgUf2KEX00V6JITQeE.jpg,1,recognition
+view2_00055,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_63C1-41275_081101065687_jpg.rf.xlfaXTkBne9KBGFQXof3.jpg,1,recognition
+view2_00056,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_6482-64729_072943621727_jpg.rf.sTeQPmR4qGoUrMiZ6ZRc.jpg,1,recognition
+view2_00057,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_64B2-2896_081208841692_jpg.rf.fa6puJEiDZSyvinKXBgO.jpg,1,recognition
+view2_00058,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_64B2-64729_074214147082_jpg.rf.2dcAUiI8QhjR68V9QXVC.jpg,1,recognition
+view2_00059,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_64M1-3239_172916915531_jpg.rf.PW92XQ5iFyRRd4eYvQ9P.jpg,1,recognition
+view2_00060,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_66B1-35544_085223058409_jpg.rf.FnA6z3OKuEnwd7r9P9X6.jpg,1,recognition
+view2_00061,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_66B1-35544_090619443541_jpg.rf.h3idawL901aWEK85tsGI.jpg,1,recognition
+view2_00062,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_66V1-90412_073634810789_jpg.rf.xfutJOdog6wrWEyLtnIf.jpg,1,recognition
+view2_00063,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_67G1-13014_125440723342_jpg.rf.WTjjsKitCKwHH2H2PLMW.jpg,1,recognition
+view2_00064,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_67K2-06687_091522159247_jpg.rf.5UAxFktQRcIQCY2oefbr.jpg,1,recognition
+view2_00065,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_68AB-16827_075845561613_jpg.rf.r2uYuiiCAIMSRfyaoduo.jpg,1,recognition
+view2_00066,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_68D1-14312_073816950933_jpg.rf.PRyGZttiwlEHQ3OmLnvI.jpg,1,recognition
+view2_00067,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_81M1-02778_131000420752_jpg.rf.VwXiTj8gaxIo8kyKNDDr.jpg,1,recognition
+view2_00068,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_82E1-13569_074412790011_jpg.rf.KBAL8Xhygoy24qxXO9KR.jpg,1,recognition
+view2_00069,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_83X1-03250_170820464263_jpg.rf.Wg7VWvtAaWS9HohBfsbL.jpg,1,recognition
+view2_00070,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_84E1-22587_080727995457_jpg.rf.P2z4XuLPFKNhpS5eeLmw.jpg,1,recognition
+view2_00071,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_8501-86044_073711651927_jpg.rf.LGZEbt9GBMQE7MLyVQIc.jpg,1,recognition
+view2_00072,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_8687-31895_082528879358_jpg.rf.Htf2yorkaNcQJo1118ml.jpg,1,recognition
+view2_00073,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_86T1-1795_094348013656_jpg.rf.7ag0gw6A900huqOvzkwr.jpg,1,recognition
+view2_00074,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_90F6-4987_075902299893_jpg.rf.mlK7Id60yNz2vmNRpc2K.jpg,1,recognition
+view2_00075,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_92B1-38056_084853584236_jpg.rf.VR9rwNT3niKH9xjjhJAe.jpg,1,recognition
+view2_00076,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_92E1-61806_082450921055_jpg.rf.uGQF5EnX0L70xZqeHWtO.jpg,1,recognition
+view2_00077,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_93C1-42011_075500653703_jpg.rf.FHJqWH95qKDlNo07Ctac.jpg,1,recognition
+view2_00078,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_93T9-3684_081637595461_jpg.rf.GMLpJkVsEYPsjfR7sjgn.jpg,1,recognition
+view2_00079,test,view2,Nhà xe - Giảng viên - Lối vào - Đuôi xe_det_B1M1-02778_073643055347_jpg.rf.rnUd3yyK5KNWgP9CMFY3.jpg,1,recognition
+view3_00001,train,view3,xemayBigPlate164.jpg,1,recognition
+view3_00002,train,view3,xemayBigPlate85.jpg,1,recognition
+view3_00003,train,view3,xemayBigPlate202.jpg,1,recognition
+view3_00004,train,view3,xemayBigPlate93.jpg,1,recognition
+view3_00005,train,view3,xemayBigPlate215.jpg,1,recognition
+view3_00006,train,view3,xemayBigPlate226.jpg,1,recognition
+view3_00007,train,view3,xemayBigPlate111.jpg,1,recognition
+view3_00008,train,view3,xemayBigPlate10.jpg,1,recognition
+view3_00009,train,view3,xemayBigPlate162.jpg,1,recognition
+view3_00010,train,view3,xemayBigPlate143.jpg,1,recognition
+view3_00011,train,view3,xemayBigPlate26.jpg,2,recognition
+view3_00012,train,view3,xemayBigPlate66.jpg,1,recognition
+view3_00013,train,view3,xemayBigPlate233.jpg,1,recognition
+view3_00014,train,view3,xemayBigPlate175.jpg,1,recognition
+view3_00015,train,view3,xemayBigPlate50.jpg,1,recognition
+view3_00016,train,view3,xemayBigPlate61.jpg,1,recognition
+view3_00017,train,view3,xemayBigPlate144.jpg,1,recognition
+view3_00018,train,view3,xemayBigPlate239.jpg,1,recognition
+view3_00019,train,view3,xemayBigPlate129.jpg,1,recognition
+view3_00020,train,view3,xemayBigPlate100.jpg,1,recognition
+view3_00021,train,view3,xemayBigPlate52.jpg,1,recognition
+view3_00022,train,view3,xemayBigPlate113.jpg,1,recognition
+view3_00023,train,view3,xemayBigPlate141.jpg,1,recognition
+view3_00024,train,view3,xemayBigPlate231.jpg,1,recognition
+view3_00025,train,view3,xemayBigPlate84.jpg,1,recognition
+view3_00026,train,view3,xemayBigPlate56.jpg,1,recognition
+view3_00027,train,view3,xemayBigPlate146.jpg,1,recognition
+view3_00028,train,view3,xemayBigPlate214.jpg,1,recognition
+view3_00029,train,view3,xemayBigPlate102.jpg,1,recognition
+view3_00030,train,view3,xemayBigPlate94.jpg,1,recognition
+view3_00031,train,view3,xemayBigPlate136.jpg,1,recognition
+view3_00032,train,view3,xemayBigPlate227.jpg,1,recognition
+view3_00033,train,view3,xemayBigPlate110.jpg,1,recognition
+view3_00034,train,view3,xemayBigPlate135.jpg,1,recognition
+view3_00035,train,view3,xemayBigPlate44.jpg,1,recognition
+view3_00036,train,view3,xemayBigPlate168.jpg,1,recognition
+view3_00037,train,view3,xemayBigPlate16.jpg,1,recognition
+view3_00038,train,view3,xemayBigPlate95.jpg,1,recognition
+view3_00039,train,view3,xemayBigPlate130.jpg,1,recognition
+view3_00040,train,view3,xemayBigPlate68.jpg,1,recognition
+view3_00041,train,view3,xemayBigPlate67.jpg,1,recognition
+view3_00042,train,view3,xemayBigPlate159.jpg,1,recognition
+view3_00043,train,view3,xemayBigPlate108.jpg,1,recognition
+view3_00044,train,view3,xemayBigPlate35.jpg,1,recognition
+view3_00045,train,view3,xemayBigPlate53.jpg,1,recognition
+view3_00046,train,view3,xemayBigPlate150.jpg,1,recognition
+view3_00047,train,view3,xemayBigPlate230.jpg,1,recognition
+view3_00048,train,view3,xemayBigPlate21.jpg,1,recognition
+view3_00049,train,view3,xemayBigPlate172.jpg,1,recognition
+view3_00050,train,view3,xemayBigPlate217.jpg,1,recognition
+view3_00051,train,view3,xemayBigPlate209.jpg,1,recognition
+view3_00052,train,view3,xemayBigPlate195.jpg,1,recognition
+view3_00053,train,view3,xemayBigPlate206.jpg,1,recognition
+view3_00054,train,view3,xemayBigPlate36.jpg,1,recognition
+view3_00055,train,view3,xemayBigPlate142.jpg,1,recognition
+view3_00056,train,view3,xemayBigPlate0.jpg,1,recognition
+view3_00057,train,view3,xemayBigPlate54.jpg,1,recognition
+view3_00058,train,view3,xemayBigPlate90.jpg,1,recognition
+view3_00059,train,view3,xemayBigPlate114.jpg,1,recognition
+view3_00060,train,view3,xemayBigPlate180.jpg,1,recognition
+view3_00061,train,view3,xemayBigPlate203.jpg,1,recognition
+view3_00062,train,view3,xemayBigPlate137.jpg,1,recognition
+view3_00063,train,view3,xemayBigPlate49.jpg,1,recognition
+view3_00064,train,view3,xemayBigPlate71.jpg,1,recognition
+view3_00065,train,view3,xemayBigPlate25.jpg,1,recognition
+view3_00066,train,view3,xemayBigPlate179.jpg,1,recognition
+view3_00067,train,view3,xemayBigPlate22.jpg,1,recognition
+view3_00068,train,view3,xemayBigPlate118.jpg,1,recognition
+view3_00069,train,view3,xemayBigPlate112.jpg,1,recognition
+view3_00070,train,view3,xemayBigPlate72.jpg,1,recognition
+view3_00071,train,view3,xemayBigPlate37.jpg,1,recognition
+view3_00072,train,view3,xemayBigPlate74.jpg,1,recognition
+view3_00073,train,view3,xemayBigPlate163.jpg,1,recognition
+view3_00074,train,view3,xemayBigPlate184.jpg,1,recognition
+view3_00075,train,view3,xemayBigPlate59.jpg,1,recognition
+view3_00076,train,view3,xemayBigPlate145.jpg,1,recognition
+view3_00077,train,view3,xemayBigPlate207.jpg,1,recognition
+view3_00078,train,view3,xemayBigPlate18.jpg,1,recognition
+view3_00079,train,view3,xemayBigPlate152.jpg,1,recognition
+view3_00080,train,view3,xemayBigPlate96.jpg,1,recognition
+view3_00081,train,view3,xemayBigPlate185.jpg,1,recognition
+view3_00082,train,view3,xemayBigPlate223.jpg,1,recognition
+view3_00083,train,view3,xemayBigPlate213.jpg,1,recognition
+view3_00084,train,view3,xemayBigPlate242.jpg,1,recognition
+view3_00085,train,view3,xemayBigPlate32.jpg,1,recognition
+view3_00086,train,view3,xemayBigPlate131.jpg,1,recognition
+view3_00087,train,view3,xemayBigPlate116.jpg,1,recognition
+view3_00088,train,view3,xemayBigPlate30.jpg,1,recognition
+view3_00089,train,view3,xemayBigPlate229.jpg,1,recognition
+view3_00090,train,view3,xemayBigPlate70.jpg,1,recognition
+view3_00091,train,view3,xemayBigPlate161.jpg,1,recognition
+view3_00092,train,view3,xemayBigPlate183.jpg,1,recognition
+view3_00093,train,view3,xemayBigPlate4.jpg,1,recognition
+view3_00094,train,view3,xemayBigPlate20.jpg,1,recognition
+view3_00095,train,view3,xemayBigPlate48.jpg,1,recognition
+view3_00096,train,view3,xemayBigPlate170.jpg,1,recognition
+view3_00097,train,view3,xemayBigPlate126.jpg,1,recognition
+view3_00098,train,view3,xemayBigPlate80.jpg,1,recognition
+view3_00099,train,view3,xemayBigPlate216.jpg,1,recognition
+view3_00100,train,view3,xemayBigPlate15.jpg,1,recognition
+view3_00101,val,view3,xemayBigPlate193.jpg,1,recognition
+view3_00102,val,view3,xemayBigPlate28.jpg,1,recognition
+view3_00103,val,view3,xemayBigPlate79.jpg,1,recognition
+view3_00104,val,view3,xemayBigPlate176.jpg,1,recognition
+view3_00105,val,view3,xemayBigPlate156.jpg,1,recognition
+view3_00106,val,view3,xemayBigPlate89.jpg,1,recognition
+view3_00107,val,view3,xemayBigPlate14.jpg,1,recognition
+view3_00108,val,view3,xemayBigPlate63.jpg,1,recognition
+view3_00109,val,view3,xemayBigPlate51.jpg,1,recognition
+view3_00110,val,view3,xemayBigPlate92.jpg,1,recognition
+view3_00111,val,view3,xemayBigPlate83.jpg,1,recognition
+view3_00112,val,view3,xemayBigPlate205.jpg,1,recognition
+view3_00113,val,view3,xemayBigPlate47.jpg,1,recognition
+view3_00114,val,view3,xemayBigPlate121.jpg,1,recognition
+view3_00115,val,view3,xemayBigPlate171.jpg,1,recognition
+view3_00116,val,view3,xemayBigPlate82.jpg,1,recognition
+view3_00117,val,view3,xemayBigPlate46.jpg,2,recognition_conflict
+view3_00118,val,view3,xemayBigPlate228.jpg,1,recognition
+view3_00119,val,view3,xemayBigPlate234.jpg,1,recognition
+view3_00120,val,view3,xemayBigPlate237.jpg,1,recognition
+view3_00121,val,view3,xemayBigPlate109.jpg,1,recognition
+view4_00001,train,view4,0409_08201_b_jpg.rf.xtOVprseUxKZUwKxI1HB.jpg,1,recognition
+view4_00002,train,view4,0307_05979_b_jpg.rf.HNWFVmUZlFPfTqtyCwnN.jpg,1,recognition
+view4_00003,train,view4,0201_05320_b_jpg.rf.6jwdEurbVumgGxFN1wNF.jpg,1,recognition
+view4_00004,train,view4,0336_04446_b_jpg.rf.HLiMC8GVo1LAAfUsPvMw.jpg,1,recognition
+view4_00005,train,view4,0131_00635_b_jpg.rf.yV1q42KkxDNRSzpDeXLd.jpg,1,recognition
+view4_00006,train,view4,0158_06500_b_jpg.rf.ieSPLj9r3yRTlIEJ3kON.jpg,1,recognition
+view4_00007,train,view4,0246_04689_b_jpg.rf.VPxlz22x2bDk1q9jn6dP.jpg,1,recognition
+view4_00008,train,view4,0322_05273_b_jpg.rf.F6ePuRGoNnNTmLSaLG7X.jpg,1,recognition
+view4_00009,train,view4,0133_05979_b_jpg.rf.j4pxNYHWyafyC1WZV6pJ.jpg,1,recognition
+view4_00010,train,view4,0120_00061_b_jpg.rf.EeMkkkgM8nxdRzrHqVP6.jpg,1,recognition
+view4_00011,train,view4,0511_05671_b_jpg.rf.CzinkGgAqaQcHBXlBmVQ.jpg,1,recognition
+view4_00012,train,view4,0118_08084_b_jpg.rf.a9TxEwhCHn0WkWo2bvFT.jpg,1,recognition
+view4_00013,train,view4,0510_07350_b_jpg.rf.Cz7zQM2AdpGWqeHT3jOy.jpg,1,recognition
+view4_00014,train,view4,0228_01938_b_jpg.rf.8ZEBwN5u160T1YDcWvIQ.jpg,1,recognition
+view4_00015,train,view4,0403_04146_b_jpg.rf.FN0qTontAG2DiBUAJDJy.jpg,1,recognition
+view4_00016,train,view4,0158_05358_b_jpg.rf.2FF61WvLkflXIlAUkE1H.jpg,1,recognition
+view4_00017,train,view4,0127_01968_b_jpg.rf.3p5nPSttRw40eptgfxgB.jpg,1,recognition
+view4_00018,train,view4,0202_04805_b_jpg.rf.HEz8eXEwDe5Q5PY3hlNf.jpg,1,recognition
+view4_00019,train,view4,0430_04601_b_jpg.rf.pxTekAjUi2Lflkbpqggg.jpg,1,recognition
+view4_00020,train,view4,0516_04394_b_jpg.rf.jqe4QXOHOrgXTN0yOe44.jpg,1,recognition
+view4_00021,train,view4,0433_04683_b_jpg.rf.wokG75ARtIEKjULq4tC3.jpg,1,recognition
+view4_00022,train,view4,0130_00833_b_jpg.rf.st5uqa7krPKZtQPZnc93.jpg,1,recognition
+view4_00023,train,view4,0221_05115_b_jpg.rf.HSpboK1IPEWX9j6flji5.jpg,1,recognition
+view4_00024,train,view4,0209_05405_b_jpg.rf.0YypR42JaklhmdEYEAKq.jpg,1,recognition
+view4_00025,train,view4,0140_04869_b_jpg.rf.33QgLALne4dovfjeh59Q.jpg,1,recognition
+view4_00026,train,view4,0139_04415_b_jpg.rf.xyCgzjsHTCvXbXiyjJbV.jpg,1,recognition
+view4_00027,train,view4,0004_06801_b_jpg.rf.m76nrHhmdxNmTGIcgFNK.jpg,1,recognition
+view4_00028,train,view4,0134_01049_b_jpg.rf.xr2KfaJWsdYAeV2P7rOD.jpg,1,recognition
+view4_00029,train,view4,0442_06183_b_jpg.rf.4n2ooOTNcdE78eOZHjlK.jpg,1,recognition
+view4_00030,train,view4,0142_00253_b_jpg.rf.kdZri1ojGRVP63pCx3aV.jpg,1,recognition
+view4_00031,train,view4,0516_05104_b_jpg.rf.CgnSvMiKeqmLFucyXfGQ.jpg,1,recognition
+view4_00032,train,view4,0039_05169_b_jpg.rf.FQCu87xJJNVdWkuubeST.jpg,1,recognition
+view4_00033,train,view4,0240_06217_b_jpg.rf.3iOfVSF6loP86lYyYOcK.jpg,1,recognition
+view4_00034,train,view4,0215_05824_b_jpg.rf.7yCNlgGL3M0HLGlvpToi.jpg,1,recognition
+view4_00035,train,view4,0321_02076_b_jpg.rf.6bvAOJJdXeGJGUPQDqaB.jpg,1,recognition
+view4_00036,train,view4,0042_01141_b_jpg.rf.ClUhfZNZQL7W8PJoGJFM.jpg,1,recognition
+view4_00037,train,view4,0443_04382_b_jpg.rf.LqqTNI2NGkz23xB1f0r6.jpg,1,recognition
+view4_00038,train,view4,0144_01003_b_jpg.rf.v3RkvYjA1ApxLXErevIi.jpg,1,recognition
+view4_00039,train,view4,0045_01821_b_jpg.rf.NWo98FXxATkzZE20Xnyj.jpg,1,recognition
+view4_00040,train,view4,0056_01595_b_jpg.rf.cYX8bQd5EG58AhOFBB9f.jpg,1,recognition
+view4_00041,train,view4,0143_04342_b_jpg.rf.tIeYpeJ2bc1815y0CTu6.jpg,1,recognition
+view4_00042,train,view4,0112_01081_b_jpg.rf.TkU6LaUn4ZBwSx9XzPR9.jpg,1,recognition
+view4_00043,train,view4,0516_06669_b_jpg.rf.aYebx6BNn5UN0TbrtlDW.jpg,1,recognition
+view4_00044,train,view4,0140_02608_b_jpg.rf.Sl4yKDEvxHEwkCi3IIve.jpg,1,recognition
+view4_00045,train,view4,0444_08178_b_jpg.rf.9E1LggSdTEdcePNe6FSB.jpg,1,recognition
+view4_00046,train,view4,0429_05375_b_jpg.rf.1ADu8blGeqqWhEePkNIu.jpg,1,recognition
+view4_00047,train,view4,0238_01814_b_jpg.rf.Bx21o89hlwbGjp7Bn3fG.jpg,1,recognition
+view4_00048,train,view4,0306_05088_b_jpg.rf.xgtybnDEeTPqyyhyQdNJ.jpg,1,recognition
+view4_00049,train,view4,0241_06153_b_jpg.rf.PRPMREvwTORrZiqbeL9f.jpg,1,recognition
+view4_00050,train,view4,0242_04555_b_jpg.rf.l6lXqwy2eUpoi0dBhcB0.jpg,1,recognition
+view4_00051,train,view4,0249_05720_b_jpg.rf.hlv6lih4R1d0pOJgSzhR.jpg,1,recognition
+view4_00052,train,view4,0212_02007_b_jpg.rf.1KLRe46LVsbdHiRush0F.jpg,1,recognition
+view4_00053,train,view4,0316_04080_b_jpg.rf.J0qpHchhuellCjC3Z2m9.jpg,1,recognition
+view4_00054,train,view4,0444_00532_b_jpg.rf.pIPtSPHfr1A6xZSA7yLf.jpg,1,recognition
+view4_00055,train,view4,0157_02592_b_jpg.rf.SPSrJkjetCS7pgMWemXx.jpg,1,recognition
+view4_00056,train,view4,0058_01153_b_jpg.rf.s6vjFUf8GVovsn7XH7Dm.jpg,1,recognition
+view4_00057,train,view4,0139_05267_b_jpg.rf.lpgo75BEN0Xmtal2O6JC.jpg,1,recognition
+view4_00058,train,view4,0333_08177_b_jpg.rf.0GWZgreIJDElVHf3ZJC7.jpg,1,recognition
+view4_00059,train,view4,0219_05548_b_jpg.rf.80au3tldmDMiEpECvS5n.jpg,1,recognition
+view4_00060,train,view4,0207_07240_b_jpg.rf.QaNVI2VptG1bRDAgoHFf.jpg,1,recognition
+view4_00061,train,view4,0242_06193_b_jpg.rf.OUP91IDcz2r5FZtkeBgz.jpg,1,recognition
+view4_00062,train,view4,0433_04098_b_jpg.rf.LuIeajaD7QMqcITghv1j.jpg,1,recognition
+view4_00063,train,view4,0439_04275_b_jpg.rf.pqnchYNfVeQZOtyYEG1L.jpg,1,recognition
+view4_00064,train,view4,0041_00486_b_jpg.rf.zejf4qbpcwbxj8UciDNr.jpg,1,recognition
+view4_00065,train,view4,0453_00096_b_jpg.rf.tBuY4sZMiYryiAqIltZn.jpg,1,recognition
+view4_00066,train,view4,0316_05313_b_jpg.rf.W1BUsbLJSGZKtjMSEhwL.jpg,1,recognition
+view4_00067,train,view4,0438_08197_b_jpg.rf.C4OnJuDjfTHi6L5Z6FsK.jpg,1,recognition
+view4_00068,train,view4,0318_06155_b_jpg.rf.HjL82kZjUohUsSXj4xGb.jpg,1,recognition
+view4_00069,train,view4,0428_04433_b_jpg.rf.V4mMOvYDwx7s1Fjj1hSJ.jpg,1,recognition
+view4_00070,train,view4,0257_08272_b_jpg.rf.p91caSQyLBzUyrEXNttI.jpg,1,recognition
+view4_00071,train,view4,0144_02616_b_jpg.rf.qAHZTtokYAcj1bBGBVX6.jpg,1,recognition
+view4_00072,train,view4,0122_00983_b_jpg.rf.Q1L1vq2OT7hQIuvkuUpf.jpg,1,recognition
+view4_00073,train,view4,0255_06511_b_jpg.rf.xk40APSMwraI4icuwgI9.jpg,1,recognition
+view4_00074,train,view4,0416_08281_b_jpg.rf.iun66VW7N7lm1XQx09MQ.jpg,1,recognition
+view4_00075,train,view4,0502_06710_b_jpg.rf.CtvTWuecFV2MxO7UWnmK.jpg,1,recognition
+view4_00076,train,view4,0201_06401_b_jpg.rf.loxAArgbfMZqFnA1KmDf.jpg,1,recognition
+view4_00077,train,view4,0112_00522_b_jpg.rf.HTvVM56JLd6Bh0wEDkBZ.jpg,1,recognition
+view4_00078,train,view4,0238_01984_b_jpg.rf.0PvV6PdOBMSHcXctRMIz.jpg,1,recognition
+view4_00079,train,view4,0444_04878_b_jpg.rf.kp8Ce7GhZNxK0SFDltbn.jpg,1,recognition
+view4_00080,train,view4,0210_05414_b_jpg.rf.zSQ0Qeojsgldv7N0xojw.jpg,1,recognition
+view4_00081,train,view4,0426_06154_b_jpg.rf.7A850BqBlMerOGKMnGqb.jpg,1,recognition
+view4_00082,train,view4,0125_02242_b_jpg.rf.ZJXvQwbw1zkwHivz01se.jpg,1,recognition
+view4_00083,train,view4,0258_05844_b_jpg.rf.Pt92gT8h9Yb4s3b40uAF.jpg,1,recognition
+view4_00084,train,view4,0249_06036_b_jpg.rf.rpi1aVZ7YnZnbRCZhoKx.jpg,1,recognition
+view4_00085,train,view4,0020_02063_b_jpg.rf.Cvk3sdMF9m8VRhHb1Ogi.jpg,1,recognition
+view4_00086,train,view4,0002_02183_b_jpg.rf.mbqHejE0sgXxItqJynl1.jpg,1,recognition
+view4_00087,train,view4,0107_00252_b_jpg.rf.J5z3cuogFCB3fo7Asrs2.jpg,1,recognition
+view4_00088,train,view4,0445_05932_b_jpg.rf.MtG7WjijY8KQgiEfLf8A.jpg,1,recognition
+view4_00089,train,view4,0220_06089_b_jpg.rf.RWZqHDV5k3lbtDJKFcGb.jpg,1,recognition
+view4_00090,train,view4,0353_04104_b_jpg.rf.WVdCUN3DCDYYTsIBNTL9.jpg,1,recognition
+view4_00091,train,view4,0422_05807_b_jpg.rf.D9PTClSLrx5KsCV1GKza.jpg,1,recognition
+view4_00092,train,view4,0428_06843_b_jpg.rf.5o2NEWGheB22dETuSMdm.jpg,1,recognition
+view4_00093,train,view4,0356_04996_b_jpg.rf.OyrUhoWYrydbOgdZldrL.jpg,1,recognition
+view4_00094,train,view4,0111_01678_b_jpg.rf.2BVoH5jEC0WQGABt6WZy.jpg,1,recognition
+view4_00095,train,view4,0215_04770_b_jpg.rf.fggZkLeJ6OLmRftz5EVY.jpg,1,recognition
+view4_00096,train,view4,0110_01670_b_jpg.rf.Vg1d1ltSixai8wwkHjNf.jpg,1,recognition
+view4_00097,train,view4,0509_01945_b_jpg.rf.ouRrjCsVUUyu20Id7rHx.jpg,1,recognition
+view4_00098,train,view4,0354_08079_b_jpg.rf.A7fbvg0117Zi76TqRiJA.jpg,1,recognition
+view4_00099,train,view4,0258_06413_b_jpg.rf.pARgRWrzIQhZfN31QOyZ.jpg,1,recognition
+view4_00100,train,view4,0102_04296_b_jpg.rf.PvvlxIRYovbmtNeT2DVt.jpg,1,recognition
+view4_00101,val,view4,0229_05899_b_jpg.rf.tb9D5duj8KbmufxyKfrT.jpg,1,recognition
+view4_00102,val,view4,0307_04182_b_jpg.rf.2qbPzc0v49KCJsygVA4I.jpg,1,recognition
+view4_00103,val,view4,0512_09669_b_jpg.rf.LDKy2xOeVNhdq1yU4nub.jpg,1,recognition
+view4_00104,val,view4,0518_07075_b_jpg.rf.lvktHz51Cq2JxQQB6rQ1.jpg,1,recognition
+view4_00105,val,view4,0454_04818_b_jpg.rf.NknZOhCBYt9vs5xUmnma.jpg,1,balanced
+view4_00106,val,view4,0316_06919_b_jpg.rf.sXcTjHwGuDPGhJyUjPBB.jpg,1,recognition
+view4_00107,val,view4,0229_06802_b_jpg.rf.2knUeLT1e3uKXiCDzkgT.jpg,1,recognition
+view4_00108,val,view4,0043_01879_b_jpg.rf.2kp4t8rrGT7kizr7YVt7.jpg,1,recognition
+view4_00109,val,view4,0444_08185_b_jpg.rf.7uJfc471L4lOxQWwja6Z.jpg,1,recognition
+view4_00110,val,view4,0445_06276_b_jpg.rf.fs0wbL8tDcBycZNzhSqH.jpg,1,recognition
+view4_00111,val,view4,0428_08142_b_jpg.rf.0GHvJmbQRac1c0TrWFhV.jpg,1,recognition
+view4_00112,val,view4,0132_04704_b_jpg.rf.KIul1WxqhVQyGY5YOiRl.jpg,1,recognition
+view4_00113,val,view4,0131_00329_b_jpg.rf.n7eygsAk1N0ilbtPg6ZH.jpg,1,recognition
+view4_00114,val,view4,0452_05433_b_jpg.rf.IfI2Fh0zzXIpcHNp1n5J.jpg,1,recognition
+view4_00115,val,view4,0506_02604_b_jpg.rf.HnCpfgQwbp4r2AEqKnh3.jpg,1,recognition
+view4_00116,val,view4,0211_04855_b_jpg.rf.gA8hgl4R2ov0qe8MC5OJ.jpg,1,recognition
+view4_00117,val,view4,0302_08192_b_jpg.rf.A5fHz9ndcH16OXv2i2FV.jpg,1,recognition
+view4_00118,val,view4,0415_05278_b_jpg.rf.HNiu1KWWr3GkFoT845ql.jpg,1,recognition
+view4_00119,val,view4,0446_01587_b_jpg.rf.FnkL8drWqsgcCUYlaeqT.jpg,1,recognition
+view4_00120,val,view4,0305_04793_b_jpg.rf.GW0SlTin0Zc4iCFbbWAy.jpg,1,recognition
+view4_00121,val,view4,0351_07377_b_jpg.rf.QJWU6SQNhFOZIc2p0bl4.jpg,1,recognition
+view5_00001,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_0103-34607_171046375527_jpg.rf.95kr4WDYe48A7PzXQdjW.jpg,1,linked:view1
+view5_00002,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_0183-34607_165026673788_jpg.rf.zQuYvpZCuPdpqt5384Mi.jpg,1,linked:view1
+view5_00003,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_01AX-11987_172852211814_jpg.rf.P0JGRHyXuJMYkqJeCLMj.jpg,3,linked:view1
+view5_00004,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_01M1-02770_115436101319_jpg.rf.PxBLyX5AFNMAjsRUssnj.jpg,5,linked:view1
+view5_00005,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_03P1-76996_115416098000_jpg.rf.09GcHMv7jVNDLMJXD7L3.jpg,6,linked:view1
+view5_00006,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_1821-0052_173708807773_jpg.rf.LVPCMnBBOKz865cdYQrv.jpg,1,linked:view1
+view5_00007,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_173758549127_jpg.rf.3wXvoijfdIrbeCnoEoE8.jpg,1,linked:view1
+view5_00008,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_173956882591_jpg.rf.YRVcub2i6DlgWAiRxOYj.jpg,1,linked:view1
+view5_00009,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_30X1-52064_175017406420_jpg.rf.sVooqHc53fToREpDmw3j.jpg,2,linked:view1
+view5_00010,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_37L3-04531_172050772765_jpg.rf.m6UVgJKHYo6Lir3Wug4q.jpg,1,linked:view1
+view5_00011,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_173759023264_jpg.rf.3FRT6eKNZQa8VJ6Nsfs1.jpg,1,linked:view1
+view5_00012,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_173959222898_jpg.rf.98pTCRbhA3nugKlndfW7.jpg,1,linked:view1
+view5_00013,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_38X1-52864_175018777544_jpg.rf.abHR7laKY3OfyEJu0IxE.jpg,1,linked:view1
+view5_00014,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_41P9-5552_174516934039_jpg.rf.FOrgmpoloRF1Q1cXOMVq.jpg,2,linked:view1
+view5_00015,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_47P9-5552_171428235941_jpg.rf.I0kQH2NkUXf2s3EN6ZVv.jpg,1,linked:view1
+view5_00016,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_47P9-5552_172555969250_jpg.rf.TZlgCyrrww9ibLnytrtR.jpg,3,linked:view1
+view5_00017,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_171603431052_jpg.rf.ZlQgqG3Z8kI0xnHqj9Tl.jpg,3,linked:view1
+view5_00018,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_171645311411_jpg.rf.QpmI33vZl8FU879igoK6.jpg,1,linked:view1
+view5_00019,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49AA-17040_172755320968_jpg.rf.HcZZvSymZxwF7RhvAvll.jpg,1,linked:view1
+view5_00020,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49MA-17040_172757373361_jpg.rf.ASKFn2Vz6WbXZNCradkA.jpg,1,linked:view1
+view5_00021,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49V9-7633_181601147446_jpg.rf.6bUfKaW6q7YJgeLTFtVR.jpg,1,linked:view1
+view5_00022,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_49V9-7633_191443161235_jpg.rf.OkPXKP7u6UNscAvpomc4.jpg,1,linked:view1
+view5_00023,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AA-61123_162548173014_jpg.rf.p0od6JNkdELmm6eTAAg8.jpg,2,linked:view1
+view5_00024,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AA-61123_162801836390_jpg.rf.jM5muftcnkUD2keK53py.jpg,3,linked:view1
+view5_00025,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05106_172003446834_jpg.rf.Zc76Oqh8VWdrRALNEp8K.jpg,2,linked:view1
+view5_00026,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05106_173309625441_jpg.rf.hJjrHYS7Ly4Pyl3KuCc3.jpg,1,linked:view1
+view5_00027,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_163813768169_jpg.rf.ogq0MUww6uZGIwWagy7B.jpg,3,linked:view1
+view5_00028,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_171612707747_jpg.rf.5MEJ58BKRgRrQzLwB23x.jpg,2,linked:view1
+view5_00029,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-05186_172801686300_jpg.rf.d5MyhKAtxQ6bsyAaTjxN.jpg,1,linked:view1
+view5_00030,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AB-65987_112532156662_jpg.rf.SEUshk8SLfZLCIRbb2KC.jpg,3,linked:view1
+view5_00031,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_112815869255_jpg.rf.UiYAT5WESjBiBcEguKSn.jpg,1,linked:view1
+view5_00032,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_113100365769_jpg.rf.dSSaaoaelV8u2jHQdIz6.jpg,1,linked:view1
+view5_00033,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-05784_120316139982_jpg.rf.PEw99wwvjIh1SX0qBml1.jpg,2,linked:view1
+view5_00034,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_101507476891_jpg.rf.jD9YurcjnizEl0w3YZZ2.jpg,5,linked:view1
+view5_00035,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_132515415912_jpg.rf.h8lpG0YszseyL7WAGKQW.jpg,1,linked:view1
+view5_00036,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AD-08592_144519411995_jpg.rf.0WIgIOfVL5gxMqSSZYKt.jpg,1,linked:view1
+view5_00037,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_114959391087_jpg.rf.tgHOvJXVVbLE7FTjmmMF.jpg,1,linked:view1
+view5_00038,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_184702487217_jpg.rf.qwePFG1qgeoRpefmauOc.jpg,1,linked:view1
+view5_00039,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_190537820279_jpg.rf.9isSphInfHQff2Dn8nU0.jpg,1,linked:view1
+view5_00040,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_192257174080_jpg.rf.oBz8Q4pjWWSMH4apTS3w.jpg,1,linked:view1
+view5_00041,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_194136669205_jpg.rf.phx2HxOEyYViarT04fT3.jpg,1,linked:view1
+view5_00042,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AE-23702_201519559898_jpg.rf.EHKSKfsXN9fT4AWGuLia.jpg,1,linked:view1
+view5_00043,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_110850166276_jpg.rf.YN9eKF8s5okxrP9YFK5D.jpg,1,linked:view1
+view5_00044,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_111355553188_jpg.rf.4gacOmVsKhN0TX8Wp5CW.jpg,4,linked:view1
+view5_00045,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50AG-00088_115212895309_jpg.rf.bIgxGKRW3lgPlG9BE0hP.jpg,3,linked:view1
+view5_00046,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-32893_102832907893_jpg.rf.mcR9fxFYmjEWMyNDa3rf.jpg,1,linked:view1
+view5_00047,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-32893_121020149315_jpg.rf.l8j7bJVseAKMja5d5U7g.jpg,1,linked:view1
+view5_00048,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_164531164884_jpg.rf.ytRPk4TwQ866vPzWrTSM.jpg,1,linked:view1
+view5_00049,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_170308292467_jpg.rf.IzsOZTFnY1hSFTGN3nqR.jpg,1,linked:view1
+view5_00050,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_170814982617_jpg.rf.aDlYS7SPCsGBhCynwGQy.jpg,1,linked:view1
+view5_00051,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N1-63591_173557120361_jpg.rf.7JIIMhSoYAnwhz8qMSRJ.jpg,1,linked:view1
+view5_00052,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-10474_112910257584_jpg.rf.isk39byJnlLUpDTJecga.jpg,1,linked:view1
+view5_00053,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-10474_173639813852_jpg.rf.JCTaRP9T1PR0VD7RmVGD.jpg,1,linked:view1
+view5_00054,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_114021245831_jpg.rf.FAMw1BNEeuEFDkXLzHFw.jpg,1,linked:view1
+view5_00055,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_115543842640_jpg.rf.bk3L7IMPXJ0kxcyvUJWz.jpg,1,linked:view1
+view5_00056,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50N2-18474_174751295609_jpg.rf.h3peS4qefXnqH58t4Hal.jpg,1,linked:view1
+view5_00057,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_175843384456_jpg.rf.o9yDdjOjqOyWjFTTPOMm.jpg,1,linked:view1
+view5_00058,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_181921376621_jpg.rf.Ex0oUVPus4yKpWl75fkv.jpg,1,linked:view1
+view5_00059,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_50Y1-20709_182253703624_jpg.rf.DjnEGxn5hq4RP4bTlluR.jpg,1,linked:view1
+view5_00060,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_173736645163_jpg.rf.eebEDR4Rtco1CxqZkwCO.jpg,1,linked:view1
+view5_00061,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_173947697163_jpg.rf.So8j2kjei5HctNIpuGne.jpg,1,linked:view1
+view5_00062,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_174332836684_jpg.rf.gcVx5uSz1F5xo4QqIBBq.jpg,1,linked:view1
+view5_00063,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_53X6-5126_174505269307_jpg.rf.k1xOciduFDJ8Q0FzYMcj.jpg,1,linked:view1
+view5_00064,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_174201792497_jpg.rf.KTQxxIgrYxDtivjxniDG.jpg,1,linked:view1
+view5_00065,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_174605181500_jpg.rf.vLUvTTlLpYI0mKntUGt7.jpg,1,linked:view1
+view5_00066,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54V6-9506_182724961083_jpg.rf.XrPPVJEoTLhmeAISf3s5.jpg,1,linked:view1
+view5_00067,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_54Y6-8865_183955488307_jpg.rf.aLbbDkbC3jsleVnH9XfH.jpg,1,linked:view1
+view5_00068,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_171252152427_jpg.rf.h5ueHyEHf3FIH6WAAGxp.jpg,1,linked:view1
+view5_00069,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_171750380315_jpg.rf.ej3BCrfsvfrT7cWN8tr2.jpg,1,linked:view1
+view5_00070,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-40262_173558069487_jpg.rf.KPDvDgI6MI25IZdrRX9k.jpg,1,linked:view1
+view5_00071,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5912-9163_121150314705_jpg.rf.LRtw8AmvNo5NDZLLrAbq.jpg,1,linked:view1
+view5_00072,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5962-74324_175054695601_jpg.rf.0mW9KIMR5xYSfJcX0oSK.jpg,1,linked:view1
+view5_00073,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5962-98560_115537427154_jpg.rf.9htxfyWMApdTny9Y3JOA.jpg,1,linked:view1
+view5_00074,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5981-68919_120116305677_jpg.rf.QJ7c9rOIhrHxWxrGWxbh.jpg,1,linked:view1
+view5_00075,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5981-69919_184839507212_jpg.rf.UTvsdSxRe4q159HKlBXb.jpg,1,linked:view1
+view5_00076,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_5993-57950_171703172096_jpg.rf.iztdeAVEl1TDm0EbBf4t.jpg,1,linked:view1
+view5_00077,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59C4-08177_163302005041_jpg.rf.T9oVjzvX9Mjpecehn0LP.jpg,1,linked:view1
+view5_00078,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59C4-08177_164256850908_jpg.rf.xnqO6M0BBx6NFMykTec9.jpg,1,linked:view1
+view5_00079,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03602_161738500754_jpg.rf.TaUTk06oLU9jW1bBcICU.jpg,1,linked:view1
+view5_00080,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03682_162004780127_jpg.rf.GKaBIXnZtqixiBEOMvOe.jpg,1,linked:view1
+view5_00081,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59F2-03682_162056516681_jpg.rf.kLlTVm0VJqIKz5K1D4FV.jpg,1,linked:view1
+view5_00082,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-4324_171848749534_jpg.rf.QiJpdxSywyHgo0KGQAbv.jpg,1,linked:view1
+view5_00083,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-74324_171016071014_jpg.rf.eVnSmxdoBYJrpdsQ0MN1.jpg,1,linked:view1
+view5_00084,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-74324_175052190310_jpg.rf.XDkatEFGC7MzPYJ5f8eB.jpg,1,linked:view1
+view5_00085,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59G2-98560_115537204790_jpg.rf.PDGkbOLTYlpDqV5xB57T.jpg,1,linked:view1
+view5_00086,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59M1-4110_143918530939_jpg.rf.oqEpQrWK2wZ1xJSDcanM.jpg,1,linked:view1
+view5_00087,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59MA-14118_103420767048_jpg.rf.chKn5TLGzoOAxUuFNrKl.jpg,1,linked:view1
+view5_00088,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59MA-14118_103424577570_jpg.rf.k3F7Rt2O2E20CSTKtJds.jpg,1,linked:view1
+view5_00089,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57885_155053277252_jpg.rf.9kF4rZsobApBEKtZ6NWE.jpg,1,linked:view1
+view5_00090,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57950_164322216231_jpg.rf.zKhBUDeG1DHBfN2xq4jk.jpg,1,linked:view1
+view5_00091,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59S3-57950_174111654182_jpg.rf.rfqYJk7sSjdSedCvk3Hd.jpg,1,linked:view1
+view5_00092,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59T2-40262_172038698785_jpg.rf.JM72SDzcG4fdbgoZHopI.jpg,1,linked:view1
+view5_00093,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59T2-40262_172812204272_jpg.rf.CfH02IHquLsGMnAWkkFD.jpg,1,linked:view1
+view5_00094,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-59299_164314438331_jpg.rf.4YMz2sfaO1QGAeIDhd7Y.jpg,1,linked:view1
+view5_00095,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_115409149769_jpg.rf.3gRo91I9JZvp34eAccTw.jpg,1,linked:view1
+view5_00096,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_120614826645_jpg.rf.9AIPRIK8bZDdORoCAbj8.jpg,1,linked:view1
+view5_00097,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_164656132520_jpg.rf.8sR0Wsi7HlRQinJgVXm9.jpg,1,linked:view1
+view5_00098,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_172629870215_jpg.rf.LiIoeS8OgOY0vR6wsWNA.jpg,1,linked:view1
+view5_00099,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-62509_172817788395_jpg.rf.3QSIPECSgxiIDuIG5ojf.jpg,1,linked:view1
+view5_00100,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66065_111348207913_jpg.rf.cHcAUrEp1KbA9qLrZLzK.jpg,1,linked:view1
+view5_00101,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66865_161307982381_jpg.rf.o0vrSRBHlAmpWRcuRb9M.jpg,1,linked:view1
+view5_00102,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59V3-66865_161629539224_jpg.rf.YqfTW1s6INPKEdzNqxZE.jpg,1,linked:view1
+view5_00103,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59VA-19798_163332574879_jpg.rf.gbbRHwUXemNeLkwKUXfz.jpg,1,linked:view1
+view5_00104,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X0-37839_165127766147_jpg.rf.DUVnE1JHl0kXkb9FlZom.jpg,1,linked:view1
+view5_00105,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_171854918328_jpg.rf.QOjkmnOJFUs4YgwAkzXG.jpg,1,linked:view1
+view5_00106,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_185711675639_jpg.rf.BhiSHBcyEO1KZZKlZOqI.jpg,1,linked:view1
+view5_00107,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-63121_200547557664_jpg.rf.UuJCcUsnTLX19xWoziY2.jpg,1,linked:view1
+view5_00108,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-81062_170647725181_jpg.rf.BwmooVHgKJZKRnGVShTq.jpg,1,linked:view1
+view5_00109,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X1-81862_170747567256_jpg.rf.NkcUOpfrf7wOtb7o9et7.jpg,1,linked:view1
+view5_00110,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-19348_174029856457_jpg.rf.fczYl9zmxWNWTetkQ7Ot.jpg,1,linked:view1
+view5_00111,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-25781_152415271173_jpg.rf.tnRs2DbTU2rGhIO27Lft.jpg,1,linked:view1
+view5_00112,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X3-61892_161445929253_jpg.rf.HbnyzVmgXzSl3JCIaVUm.jpg,1,linked:view1
+view5_00113,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59X4-12879_200208219948_jpg.rf.exWTyoiZJiVWuBTTvnfs.jpg,1,linked:view1
+view5_00114,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185026464019_jpg.rf.crygRSPKb62SiFF7klF9.jpg,1,linked:view1
+view5_00115,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185049355300_jpg.rf.qRSDJasiB3VzYqs7dBW3.jpg,1,linked:view1
+view5_00116,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-37946_185824869937_jpg.rf.Ja4zt985Du3ItdsGY50d.jpg,1,linked:view1
+view5_00117,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-62607_162115358177_jpg.rf.83nY8ssYleEDQHmynHFZ.jpg,1,linked:view1
+view5_00118,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-66197_111531916048_jpg.rf.CjlHXR12tgsjhsVCSxUz.jpg,1,linked:view1
+view5_00119,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59XB-66197_172316098181_jpg.rf.2TWJ1fH64cnasUXQKbiD.jpg,1,linked:view1
+view5_00120,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59Y3-60456_113204209540_jpg.rf.s6PoeIX1kmL15iLKgyPb.jpg,1,linked:view1
+view5_00121,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59YA-17281_110311430615_jpg.rf.rQf9ceICz8MxUDakO9gx.jpg,1,linked:view1
+view5_00122,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_59YA_160413775038_jpg.rf.kSBZGd2pYSSS7vncvxgd.jpg,1,linked:view1
+view5_00123,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6007-90235_165718799758_jpg.rf.aPQN6ngPCSx7Qr1odWdQ.jpg,1,linked:view1
+view5_00124,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6061-48573_095207450928_jpg.rf.7cxd7jENcrlPrrbAwY4o.jpg,1,linked:view1
+view5_00125,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6061-53232_174417787629_jpg.rf.pyZuspKXHPEcujGRY8b5.jpg,1,linked:view1
+view5_00126,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74700_173556416333_jpg.rf.KOQdaR7ARQ2UmKrKNaAZ.jpg,1,linked:view1
+view5_00127,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_165715802937_jpg.rf.H9anaO4hArhnvrTEoaPg.jpg,1,linked:view1
+view5_00128,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_172719000133_jpg.rf.dq8tBwarXUJtItwyhZaH.jpg,1,linked:view1
+view5_00129,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6085-74780_180546241427_jpg.rf.l7lDFDEiLXNM7QNt7EOs.jpg,1,linked:view1
+view5_00130,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_171355879564_jpg.rf.PF9ynYHr46GnU3BfEL9P.jpg,1,linked:view1
+view5_00131,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_174735245389_jpg.rf.qvXb6v78fCqZBry9AJpV.jpg,1,linked:view1
+view5_00132,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6086-64951_175229332456_jpg.rf.8rMXcUzMAhmvCxAdwiAF.jpg,1,linked:view1
+view5_00133,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6087-10235_170805249789_jpg.rf.7V19Oihku5K9MQzj29bD.jpg,1,linked:view1
+view5_00134,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6087-90235_105848347799_jpg.rf.8iU1TahmKTRDqhj2UeEx.jpg,1,linked:view1
+view5_00135,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-19880_111707178358_jpg.rf.YrdycA3LJRpoivb2uWbU.jpg,1,linked:view1
+view5_00136,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-19880_181522220831_jpg.rf.Yyf4inXSzlpgn1Ae2jF6.jpg,1,linked:view1
+view5_00137,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-58424_165502125405_jpg.rf.rHvpsvA6CX133LiUcnQD.jpg,1,linked:view1
+view5_00138,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60AA-58424_171416939529_jpg.rf.X0LlBCwJpE53nLBXD8cA.jpg,1,linked:view1
+view5_00139,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B5-74780_164119696858_jpg.rf.pwVliZHBJKO7SJ3tFarK.jpg,1,linked:view1
+view5_00140,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B5-74780_173603745835_jpg.rf.p2HWRfvKL9auieuwnh9x.jpg,1,linked:view1
+view5_00141,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B6-64951_170333940273_jpg.rf.B7aTA59HYswISMTnItXU.jpg,1,linked:view1
+view5_00142,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60B7-90235_170020442621_jpg.rf.4K5tmYeuQK4jpX4Std70.jpg,1,linked:view1
+view5_00143,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60F2-64456_172930076923_jpg.rf.ymwbbkgE6S05SpmkymbY.jpg,1,linked:view1
+view5_00144,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60F3-30550_132323690411_jpg.rf.HOmRhdUWi8T0LPTATIhO.jpg,1,linked:view1
+view5_00145,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-48577_104630104926_jpg.rf.dWMgnH4qC4jwLttACjzG.jpg,1,linked:view1
+view5_00146,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-48577_163734980130_jpg.rf.aRUC7td2W1BvQdykJRuB.jpg,1,linked:view1
+view5_00147,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-51718_120039089596_jpg.rf.q7YAJyz2qV7VJtD8LW30.jpg,1,linked:view1
+view5_00148,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60G1-51718_181644837905_jpg.rf.OV5eeWeQClcPGXPv86ah.jpg,1,linked:view1
+view5_00149,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_114952120402_jpg.rf.0K1zh22PjjSp5XZdPciq.jpg,1,linked:view1
+view5_00150,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_181641297262_jpg.rf.DbQGCXloaBzv9mgwuDaw.jpg,1,linked:view1
+view5_00151,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_60H1-45996_184453765638_jpg.rf.JBcdMKCQUT6Xho3C21dv.jpg,1,linked:view1
+view5_00152,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6101-91688_163848361046_jpg.rf.PBykWeLuVSjQnI0LUxBv.jpg,1,linked:view1
+view5_00153,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_113034069562_jpg.rf.tCLLHtAeq4oRfIdB11mg.jpg,1,linked:view1
+view5_00154,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_162614374896_jpg.rf.JtRew6Vf1jjPms8KabGf.jpg,1,linked:view1
+view5_00155,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61AA-65613_163816791557_jpg.rf.GwQdaouH86hbn6D888UW.jpg,1,linked:view1
+view5_00156,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-48496_101129995129_jpg.rf.vx0S6PINNoDKAA8LyqF0.jpg,1,linked:view1
+view5_00157,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-48496_114458793738_jpg.rf.6G6BY2p9rFgPYMl5yyPE.jpg,1,linked:view1
+view5_00158,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-80454_171459510321_jpg.rf.yrfJGNFQfRJfhbai9Ekf.jpg,1,linked:view1
+view5_00159,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61C1-80454_172821825491_jpg.rf.1B4XtPr6sPPeQ4zg51bs.jpg,1,linked:view1
+view5_00160,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171410828811_jpg.rf.8M82ksdSX2TJDBqQBhUb.jpg,1,linked:view1
+view5_00161,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171440665057_jpg.rf.SuZ1Wykkabf3olfW4xYK.jpg,1,linked:view1
+view5_00162,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-04222_171947711097_jpg.rf.8lw4WruZXxifbVApcoHu.jpg,1,linked:view1
+view5_00163,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-10700_102955967405_jpg.rf.3Rj1IpTIuWQAPNv8OCKV.jpg,1,linked:view1
+view5_00164,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-13021_114332924397_jpg.rf.oe9BZoPYbXlTsnIpaezR.jpg,1,linked:view1
+view5_00165,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61CA-13021_163854851617_jpg.rf.ahDzY9k7wGU90gIn4YH3.jpg,1,linked:view1
+view5_00166,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61D2-20961_161309376622_jpg.rf.MxfLUoXehFmeTPpWTf51.jpg,1,linked:view1
+view5_00167,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61D2-20961_165224274634_jpg.rf.7JyjHyMGZR6P7YD7Mxjk.jpg,1,linked:view1
+view5_00168,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_094354780668_jpg.rf.RzAAEXp8Ptc64MIIDYNF.jpg,1,linked:view1
+view5_00169,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_102501745276_jpg.rf.VjpeFtNWqlFwrdTIVZ7f.jpg,1,linked:view1
+view5_00170,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61DB-00249_143953165651_jpg.rf.Aa9a5AvXISKSqW4iYR0X.jpg,1,linked:view1
+view5_00171,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_61E1-64942_174915794753_jpg.rf.SQo5bwveDaNkGhcfspjU.jpg,1,linked:view1
+view5_00172,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6211-82243_181855757136_jpg.rf.TKrQ8fbfT69a7OLtzjYZ.jpg,1,linked:view1
+view5_00173,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6211-82243_183417770578_jpg.rf.otTR8qZP9nbEcJpHQsGS.jpg,1,linked:view1
+view5_00174,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_6281-43365_160449035252_jpg.rf.m4TzMorQwqbR9NSV8LaI.jpg,1,linked:view1
+view5_00175,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_62K1-16265_173105234823_jpg.rf.n2TGg9F0Sjy8zKCbKtY1.jpg,1,linked:view1
+view5_00176,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68AB-16827_183356188829_jpg.rf.p6e4cW4qSOznDLMMmE8e.jpg,1,linked:view1
+view5_00177,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68AB-16827_195528326128_jpg.rf.E7owcRI0QaRamOkEA6Rp.jpg,1,linked:view1
+view5_00178,test,view5,Nhà xe - Giảng viên - Lối ra - Đuôi xe_det_68G1-53232_174548084396_jpg.rf.1tpXvt5JyxNeWLxKcQ2D.jpg,1,linked:view1

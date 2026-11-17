@@ -25,13 +25,13 @@ from pytorch_lightning.callbacks import ModelCheckpoint, ModelSummary, TQDMProgr
 from strhub.models.parseq.system import PARSeq
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
-from tqdm.auto import tqdm
 
 from vnlp import config
-from vnlp.recognition.preprocess import preprocess_plate
+from vnlp.recognition.preprocess import preprocess_many, preprocess_plate
 from vnlp.utils.io import imread, load_samples
 from vnlp.utils.metrics import print_eval, save_eval, summarize_predictions
 from vnlp.utils.plotting import plot_history
+from vnlp.utils.runtime import loader_kwargs, progress, progress_enabled
 
 # Charset / kích thước ảnh cố định lúc import (đổi ocr.* trong config.yaml thì restart kernel + train lại)
 IMG_W, IMG_H, CHARS = config.IMG_W, config.IMG_H, config.CHARS
@@ -58,19 +58,22 @@ class PARSeqDataset(Dataset):
     def __init__(self, root_dir, augment=True):
         self.samples = load_samples(root_dir)
         self.transform = build_transform(augment)
+        # Tiền xử lý xác định -> làm 1 lần, giữ RAM; augmentation vẫn chạy mỗi epoch
+        self.cache = (preprocess_many([s[0] for s in self.samples])
+                      if config.CFG["ocr"].get("cache_preprocessed", True) else None)
 
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, idx):
         image_path, text, sample_id = self.samples[idx]
-        image = imread(image_path)
-        if image is None:
-            rgb = np.zeros((IMG_H, IMG_W, 3), dtype=np.uint8)
+        if self.cache is not None:
+            processed = self.cache[idx]
         else:
-            processed = preprocess_plate(image)
-            code = cv2.COLOR_GRAY2RGB if processed.ndim == 2 else cv2.COLOR_BGR2RGB
-            rgb = cv2.cvtColor(processed, code)
+            image = imread(image_path)
+            processed = np.zeros((IMG_H, IMG_W), dtype=np.uint8) if image is None else preprocess_plate(image)
+        code = cv2.COLOR_GRAY2RGB if processed.ndim == 2 else cv2.COLOR_BGR2RGB
+        rgb = cv2.cvtColor(processed, code)
         return self.transform(rgb), text, sample_id
 
 
@@ -105,8 +108,8 @@ def make_loader(root_dir, augment, batch_size, shuffle, num_workers=None, with_i
         dataset, collate = _LightningBatch(dataset), _collate_lightning
     else:
         collate = collate_fn
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers,
-                      pin_memory=torch.cuda.is_available(), collate_fn=collate)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, collate_fn=collate,
+                      **loader_kwargs(num_workers))
 
 
 # =====================================================
@@ -157,7 +160,9 @@ class TrackingCallback(pl.Callback):
         loader = loaders[0] if isinstance(loaders, list) else loaders
         if loader is None:
             return
-        images, texts = next(iter(loader))
+        if not hasattr(self, "_sample_batch"):  # lấy 1 lần: tạo iterator mỗi epoch = tạo lại worker + cảnh báo
+            self._sample_batch = next(iter(loader))
+        images, texts = self._sample_batch
         was_training = pl_module.training
         pl_module.eval()
         with torch.no_grad():
@@ -214,7 +219,8 @@ def train(train_dir=None, val_dir=None, out_dir=None, epochs=None, batch_size=No
         devices=1,
         # Chỉ định rõ tqdm + summary thường: nếu môi trường có `rich` (vd Kaggle), Lightning tự dùng
         # RichProgressBar -> chiếm stdout, notebook display() sau đó bị RecursionError.
-        callbacks=[checkpoint, TrackingCallback(out_dir), TQDMProgressBar(), ModelSummary()],
+        callbacks=[checkpoint, TrackingCallback(out_dir),
+                   TQDMProgressBar(refresh_rate=1 if progress_enabled() else 0), ModelSummary()],
         default_root_dir=out_dir,
     )
     trainer.fit(build_model(batch_size, lr), train_dataloaders=train_loader, val_dataloaders=val_loader)
@@ -236,7 +242,7 @@ def evaluate(test_dir=None, weights=None, out_dir=None, batch_size=None, num_wor
 
     records = []
     with torch.no_grad():
-        for images, texts, ids in tqdm(loader, desc="Test PARSeq"):
+        for images, texts, ids in progress(loader, desc="Test PARSeq"):
             preds = decode(model, images.to(device))
             records += [{"sample_id": i, "gt": g, "pred": p} for i, g, p in zip(ids, texts, preds)]
 
