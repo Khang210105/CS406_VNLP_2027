@@ -27,6 +27,8 @@ import sys
 import time
 from pathlib import Path
 
+import yaml
+
 from vnlp import config
 
 DATA_SLUG, CODE_SLUG = "cs406-vnlp-data", "cs406-vnlp-code"
@@ -146,8 +148,12 @@ def push_code(api, user, info):
     write_meta(folder, user, CODE_SLUG, "CS406 VNLP Code")
     root = config.REPO_ROOT
     shutil.copytree(root / "vnlp", folder / "vnlp", ignore=shutil.ignore_patterns("__pycache__"))
-    for name in ("config.yaml", "requirements-kaggle.txt"):
-        shutil.copy2(root / name, folder / name)
+    shutil.copy2(root / "requirements-kaggle.txt", folder / "requirements-kaggle.txt")
+    # Upload config THỰC TẾ đang dùng (config.yaml + mọi config.reload(...) ghi đè),
+    # để thí nghiệm chạy được mà không phải sửa tạm config.yaml.
+    with open(folder / "config.yaml", "w", encoding="utf-8") as f:
+        print("# Sinh bởi vnlp.kaggle_push từ config đang dùng (đã gồm ghi đè)", file=f)
+        yaml.safe_dump(config.CFG, f, allow_unicode=True, sort_keys=False)
     (folder / "BUILD_INFO.json").write_text(json.dumps(info, indent=1, ensure_ascii=False), encoding="utf-8")
 
     note = f"{info['experiment']} | {info['git_commit'] or 'no-git'} | {info['pushed_at']}"
