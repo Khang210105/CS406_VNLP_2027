@@ -67,27 +67,39 @@ def write_meta(folder: Path, user, slug, title):
         {"title": title, "id": f"{user}/{slug}", "licenses": [{"name": "other"}]}, indent=1), encoding="utf-8")
 
 
+def dataset_version(api, ref):
+    """(status, current_version_number); (None, 0) nếu chưa tồn tại."""
+    try:
+        info = json.loads(api.dataset_status(ref, format="json"))
+        return str(info.get("status", "")).lower(), int(info.get("current_version_number") or 0)
+    except Exception:
+        return None, 0
+
+
 def upload_dataset(api, folder, ref, note):
-    """Tạo mới (private) hoặc thêm version. dir_mode=zip: thư mục con được nén khi upload."""
-    if dataset_exists(api, ref):
+    """Tạo mới (private) hoặc thêm version. dir_mode=zip: thư mục con được nén khi upload.
+    Trả về số version cần đợi (để notebook không gắn nhầm version cũ)."""
+    _, before = dataset_version(api, ref)
+    if before:
         api.dataset_create_version(str(folder), version_notes=note, quiet=True, dir_mode="zip")
     else:
         api.dataset_create_new(str(folder), public=False, quiet=True, dir_mode="zip")
+    return before + 1
 
 
-def wait_ready(api, ref, timeout=1200):
+def wait_ready(api, ref, min_version=0, timeout=1800):
+    """Đợi tới khi dataset có version >= min_version VÀ ready.
+    (Chỉ xem 'ready' là chưa đủ: trong lúc version mới đang xử lý, Kaggle vẫn báo ready của version cũ
+    -> notebook gắn nhầm data/code cũ.)"""
     start = time.time()
     while time.time() - start < timeout:
-        try:
-            status = str(api.dataset_status(ref)).lower()
-        except Exception:
-            status = "pending"
-        if "ready" in status:
-            return
-        if "error" in status:
+        status, version = dataset_version(api, ref)
+        if status and "error" in status:
             sys.exit(f"Kaggle báo lỗi khi xử lý dataset {ref}")
+        if status and "ready" in status and version >= min_version:
+            return version
         time.sleep(10)
-    sys.exit(f"Quá {timeout}s mà dataset {ref} chưa sẵn sàng – xem trên kaggle.com rồi chạy lại")
+    sys.exit(f"Quá {timeout}s mà dataset {ref} chưa lên version {min_version} – xem trên kaggle.com rồi chạy lại")
 
 
 # ── Data ──────────────────────────────────────────────────────────────
@@ -97,7 +109,7 @@ def push_data(api, user, state):
         if not dataset_exists(api, shared):
             sys.exit(f"Không truy cập được dataset {shared}. Nhờ chủ dataset share (Settings > Collaborators).")
         print(f"[data] dùng dataset được share: {shared}")
-        return shared
+        return shared, 0
 
     if not (config.RECOG_MANIFEST.is_file() and config.DET_MANIFEST.is_file() and config.DET_DATA_YAML.is_file()):
         sys.exit(f"Chưa có split '{config.SPLIT_NAME}' trên máy. Chạy 2 lệnh split (README), "
@@ -109,7 +121,7 @@ def push_data(api, user, state):
     ref = f"{user}/{DATA_SLUG}"
     if state.get("data_fingerprint") == fp and dataset_exists(api, ref):
         print(f"[data] không đổi -> dùng lại {ref}")
-        return ref
+        return ref, 0
 
     folder = STAGING / "data"
     shutil.rmtree(folder, ignore_errors=True)
@@ -119,10 +131,10 @@ def push_data(api, user, state):
     for p in manifests:
         shutil.copy2(p, folder / p.name)
     print(f"[data] đang upload {ref} ({', '.join(d.name for d in split_dirs)}; ~250 MB/bộ, sẽ lâu)...")
-    upload_dataset(api, folder, ref, f"data {fp[:8]}")
+    need = upload_dataset(api, folder, ref, f"data {fp[:8]}")
     state["data_fingerprint"] = fp
     STATE_FILE.write_text(json.dumps(state, indent=1))  # lưu ngay: lỗi bước sau không phải upload lại
-    return ref
+    return ref, need
 
 
 # ── Code ──────────────────────────────────────────────────────────────
@@ -158,8 +170,7 @@ def push_code(api, user, info):
 
     note = f"{info['experiment']} | {info['git_commit'] or 'no-git'} | {info['pushed_at']}"
     print(f"[code] đang upload {ref} ({note})...")
-    upload_dataset(api, folder, ref, note)
-    return ref
+    return ref, upload_dataset(api, folder, ref, note)
 
 
 # ── Kernel ────────────────────────────────────────────────────────────
@@ -208,11 +219,10 @@ def push(quick):
     if info["git_commit"] and info["git_commit"].endswith("+dirty"):
         print("⚠️  Có thay đổi chưa commit – vẫn chạy, nhưng nên commit để sau này truy lại được code.")
 
-    data_ref = push_data(api, user, state)
-    code_ref = push_code(api, user, info)
-    print("[wait] đợi Kaggle xử lý dataset...")
-    wait_ready(api, data_ref)
-    wait_ready(api, code_ref)
+    data_ref, data_ver = push_data(api, user, state)
+    code_ref, code_ver = push_code(api, user, info)
+    print("[wait] đợi Kaggle xử lý xong version mới của dataset...")
+    print(f"       {data_ref} v{wait_ready(api, data_ref, data_ver)} | {code_ref} v{wait_ready(api, code_ref, code_ver)}")
     url = push_kernel(api, user, [data_ref, code_ref], quick)
 
     print(f"\n✅ Đã gửi experiment '{info['experiment']}' (commit {info['git_commit']}). Theo dõi tại:")
